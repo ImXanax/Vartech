@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Varela+Round&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: rgba(13, 8, 34);
+}
+.bg-bubbles {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+.bubble1 {
+  background-image: linear-gradient(
+    to right,
+    #b8cbb8 0%,
+    #b8cbb8 0%,
+    #b465da 0%,
+    #cf6cc9 33%,
+    #ee609c 66%,
+    #ee609c 100%
+  );
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: absolute;
+  left: 5%;
+  top: 10%;
+}
+.bubble2 {
+  background-image: linear-gradient(
+    to right,
+    #b8cbb8 0%,
+    #b8cbb8 0%,
+    #b465da 0%,
+    #cf6cc9 33%,
+    #ee609c 66%,
+    #ee609c 100%
+  );
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  position: absolute;
+  left: 25%;
+  top: 20%;
+}
+.bubble3 {
+  background-image: linear-gradient(
+    to right,
+    #b8cbb8 0%,
+    #b8cbb8 0%,
+    #b465da 0%,
+    #cf6cc9 33%,
+    #ee609c 66%,
+    #ee609c 100%
+  );
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  position: absolute;
+  left: 80%;
+  top: 6%;
+}
+.bubble4 {
+  background-image: linear-gradient(
+    to right,
+    #b8cbb8 0%,
+    #b8cbb8 0%,
+    #b465da 0%,
+    #cf6cc9 33%,
+    #ee609c 66%,
+    #ee609c 100%
+  );
+  
+  width: 220px;
+  height: 220px;
+  border-radius: 50%;
+  position: absolute;
+  left: 55%;
+  top: 20%;
+}
+.bubble5 {
+  background: linear-gradient(
+    163deg,
+    rgba(10, 192, 226, 1) 0%,
+    rgba(231, 106, 213, 1) 50%,
+    rgba(255, 224, 100, 1) 100%
+  );
+  filter: blur(100px);
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  position: absolute;
+  left: 78%;
+  top: 46%;
+}
+.bubble6 {
+  background: linear-gradient(
+    90deg,
+    rgb(116, 18, 182) 0%,
+    rgba(253, 29, 29, 1) 50%,
+    rgb(241, 99, 43) 100%
+  );
+  filter: blur(100px);
+  width: 410px;
+  height: 410px;
+  border-radius: 50%;
+  position: absolute;
+  left: -6%;
+  top: 60%;
+}
+.wrapper {
+  margin-top: 20px;
+  color: rgb(216, 212, 218);
+  font-family: "Varela Round", sans-serif;
+  background-color: rgba(13, 8, 34);
+  z-index: 2;
+}
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+p.logo {
+  color: aliceblue;
+  font-size: 50px;
+  text-align: center;
+  padding-bottom: 10px;
+  opacity: 1;
+  transition: opacity 800ms ease-in-out;
+  z-index: 3;
+}
+p.logo:hover {
+  opacity: 0;
+}
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.box {
+  display: flex;
+  height: 125px;
+  width: 950px;
+  background-color: hsla(256, 87%, 28%, 0.47);
+  border-left: 7.5px solid rgb(5, 176, 182);
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  backdrop-filter: blur(10px);
+  margin: 1% 1% 1% 1%;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+  z-index: 3;
+
+}
+.box a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+.content {
+  height: 100%;
+  width: 100%;
+
+  font-weight: bold;
+  font-size: 30px;
+  text-shadow: rgba(0, 0, 0, 0.397) 0px 5px 9px;
+
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+}
+.content-img{
+  display: flex;
+  height: 100%;
+  width: 200px;
+}
+.content-img img {
+  height: 100%;
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.705) 0px 5px 15px;
+  border-radius: 4px;
+}
+.content-texts h4 {
+  margin: 0px 0px 0px -12px;
+  font-family: "Bebas Neue", cursive;
+}
+.content-texts p {
+  margin: 0px 0px 0px -12px;
+  font-family: "Teko", sans-serif;
+  font-size: 25px;
+}
+#tw {
+  font-size: 18px;
+}
+@media only screen and (max-width: 480px) {
+  .bg-bubbles .bubble4 {
+    display: none;
+  }
+  .bg-bubbles .bubble2 {
+    display: none;
+  }
+  .glass {
+    background-color: rgba(13, 8, 34);
+  }
+  .box {
+    margin-top: 3%;
+  }
+}
