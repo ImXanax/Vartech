@@ -2,7 +2,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Varela+Round&display=swap");
 
-* {
+*,*::after,*::before{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -15,14 +15,8 @@ body {
   overflow-x: hidden;
   background-color: rgba(13, 8, 34);
 }
-.bg-bubbles {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  z-index: 1;
-  overflow: hidden;
-}
-.bubble1 {
+
+/* .bubble1 {
   background-image: linear-gradient(
     to right,
     #b8cbb8 0%,
@@ -38,60 +32,8 @@ body {
   position: absolute;
   left: 5%;
   top: 10%;
-}
-.bubble2 {
-  background-image: linear-gradient(
-    to right,
-    #b8cbb8 0%,
-    #b8cbb8 0%,
-    #b465da 0%,
-    #cf6cc9 33%,
-    #ee609c 66%,
-    #ee609c 100%
-  );
-  width: 210px;
-  height: 210px;
-  border-radius: 50%;
-  position: absolute;
-  left: 25%;
-  top: 20%;
-}
-.bubble3 {
-  background-image: linear-gradient(
-    to right,
-    #b8cbb8 0%,
-    #b8cbb8 0%,
-    #b465da 0%,
-    #cf6cc9 33%,
-    #ee609c 66%,
-    #ee609c 100%
-  );
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
-  position: absolute;
-  left: 80%;
-  top: 6%;
-}
-.bubble4 {
-  background-image: linear-gradient(
-    to right,
-    #b8cbb8 0%,
-    #b8cbb8 0%,
-    #b465da 0%,
-    #cf6cc9 33%,
-    #ee609c 66%,
-    #ee609c 100%
-  );
-  
-  width: 220px;
-  height: 220px;
-  border-radius: 50%;
-  position: absolute;
-  left: 55%;
-  top: 20%;
-}
-.bubble5 {
+} */
+/* .bubble1 {
   background: linear-gradient(
     163deg,
     rgba(10, 192, 226, 1) 0%,
@@ -99,14 +41,15 @@ body {
     rgba(255, 224, 100, 1) 100%
   );
   filter: blur(100px);
-  width: 320px;
-  height: 320px;
+  width: 410px;
+  height: 410px;
   border-radius: 50%;
   position: absolute;
-  left: 78%;
-  top: 46%;
-}
-.bubble6 {
+  left: 76%;
+  top: 60%;
+  
+} */
+.bubble2 {
   background: linear-gradient(
     90deg,
     rgb(116, 18, 182) 0%,
@@ -118,35 +61,60 @@ body {
   height: 410px;
   border-radius: 50%;
   position: absolute;
-  left: -6%;
-  top: 60%;
+  left: 75%;
+  top: -30%;
+  
 }
 .wrapper {
-  margin-top: 20px;
   color: rgb(216, 212, 218);
   font-family: "Varela Round", sans-serif;
   background-color: rgba(13, 8, 34);
-  z-index: 2;
+  
 }
-
 .header {
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+}
+
+.header img {
+  margin: 10px 0px 0px 10px;
+  width: 70px;
+  height: 70px;
+}
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  width: 35%;
+  height: 100%;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: row;
+  gap: 10px;
 }
-p.logo {
-  color: aliceblue;
-  font-size: 50px;
+li {
+  
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
-  padding-bottom: 10px;
-  opacity: 1;
-  transition: opacity 800ms ease-in-out;
+  width: 120px;
+  height: 70px;
+  cursor: pointer;
   z-index: 3;
 }
-p.logo:hover {
-  opacity: 0;
+li:hover {
+  box-shadow: 0px 5px 0px rgb(202, 43, 8);
 }
+li a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
 .container {
   display: flex;
   flex-wrap: wrap;
@@ -165,7 +133,7 @@ p.logo:hover {
   box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
     rgba(0, 0, 0, 0.22) 0px 15px 12px;
   z-index: 3;
-
+  
 }
 .box a {
   text-decoration: none;
@@ -185,8 +153,9 @@ p.logo:hover {
   align-content: center;
   flex-wrap: wrap;
   flex-direction: row;
+  
 }
-.content-img{
+.content-img {
   display: flex;
   height: 100%;
   width: 200px;
