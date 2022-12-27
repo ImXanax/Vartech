@@ -2,7 +2,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Varela+Round&display=swap");
 
-*,*::after,*::before{
+*,
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -16,61 +18,12 @@ body {
   background-color: rgba(13, 8, 34);
 }
 
-/* .bubble1 {
-  background-image: linear-gradient(
-    to right,
-    #b8cbb8 0%,
-    #b8cbb8 0%,
-    #b465da 0%,
-    #cf6cc9 33%,
-    #ee609c 66%,
-    #ee609c 100%
-  );
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  position: absolute;
-  left: 5%;
-  top: 10%;
-} */
-/* .bubble1 {
-  background: linear-gradient(
-    163deg,
-    rgba(10, 192, 226, 1) 0%,
-    rgba(231, 106, 213, 1) 50%,
-    rgba(255, 224, 100, 1) 100%
-  );
-  filter: blur(100px);
-  width: 410px;
-  height: 410px;
-  border-radius: 50%;
-  position: absolute;
-  left: 76%;
-  top: 60%;
-  
-} */
-.bubble2 {
-  background: linear-gradient(
-    90deg,
-    rgb(116, 18, 182) 0%,
-    rgba(253, 29, 29, 1) 50%,
-    rgb(241, 99, 43) 100%
-  );
-  filter: blur(100px);
-  width: 410px;
-  height: 410px;
-  border-radius: 50%;
-  position: absolute;
-  left: 75%;
-  top: -30%;
-  
-}
 .wrapper {
   color: rgb(216, 212, 218);
   font-family: "Varela Round", sans-serif;
   background-color: rgba(13, 8, 34);
-  
 }
+/* HEADER */
 .header {
   display: flex;
   justify-content: space-between;
@@ -83,7 +36,8 @@ body {
   width: 70px;
   height: 70px;
 }
-ul {
+/* NAV */
+ul.nav-ul {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -95,8 +49,8 @@ ul {
   flex-direction: row;
   gap: 10px;
 }
-li {
-  
+
+li.nav-li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -106,89 +60,73 @@ li {
   cursor: pointer;
   z-index: 3;
 }
-li:hover {
-  box-shadow: 0px 5px 0px rgb(202, 43, 8);
+
+li.nav-li:hover {
+  border-bottom: 5px solid rgb(202, 43, 8);
 }
-li a {
+
+.nav-li > a {
   color: white;
   font-weight: bold;
   text-decoration: none;
 }
 
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+/* CAROUSEL */
+.carousel {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
 }
-.box {
-  display: flex;
-  height: 125px;
-  width: 950px;
-  background-color: hsla(256, 87%, 28%, 0.47);
-  border-left: 7.5px solid rgb(5, 176, 182);
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
-  backdrop-filter: blur(10px);
-  margin: 1% 1% 1% 1%;
-  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
-    rgba(0, 0, 0, 0.22) 0px 15px 12px;
-  z-index: 3;
-  
+.carousel > ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
-.box a {
-  text-decoration: none;
-  color: rgb(255, 255, 255);
+.carousel-button {
+  color: rgba(255, 255, 255, 0.544);
+  position: absolute;
+  background: none;
+  border: none;
+  font-size: 4rem;
+  z-index: 2;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  border-radius: 0.25rem;
+  padding: 0 0.5rem;
+  background-color: rgba(0, 0, 0, 0.1);
 }
-.content {
-  height: 100%;
-  width: 100%;
+.carousel-button.next{
+  right: 1rem;
+}
 
-  font-weight: bold;
-  font-size: 30px;
-  text-shadow: rgba(0, 0, 0, 0.397) 0px 5px 9px;
+.carousel-button.prev{
+  left: 1rem;
+}
+.carousel-button:hover,
+.carousel-button:focus {
+  color: white;
+  background-color:rgba(0, 0, 0, 0.2);
+}
+.carousel-button:focus {
+  outline: 1px solid black;
+}
 
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  align-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
-  
+/* CAROUSEL SLIDERS */
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
 }
-.content-img {
-  display: flex;
-  height: 100%;
-  width: 200px;
-}
-.content-img img {
-  height: 100%;
+
+.slide > img {
+  display: block;
   width: 100%;
-  box-shadow: rgba(0, 0, 0, 0.705) 0px 5px 15px;
-  border-radius: 4px;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
 }
-.content-texts h4 {
-  margin: 0px 0px 0px -12px;
-  font-family: "Bebas Neue", cursive;
-}
-.content-texts p {
-  margin: 0px 0px 0px -12px;
-  font-family: "Teko", sans-serif;
-  font-size: 25px;
-}
-#tw {
-  font-size: 18px;
-}
-@media only screen and (max-width: 480px) {
-  .bg-bubbles .bubble4 {
-    display: none;
-  }
-  .bg-bubbles .bubble2 {
-    display: none;
-  }
-  .glass {
-    background-color: rgba(13, 8, 34);
-  }
-  .box {
-    margin-top: 3%;
-  }
+
+.slide[data-active] {
+  opacity: 1;
 }

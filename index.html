@@ -10,29 +10,72 @@
   </head>
   <body>
     <div class="wrapper">
+      <!-- NAVIGATION BAR -->
       <nav class="header">
-        <ul>
+        <ul class="nav-ul">
           <div class="logo">
             <img class="img" src="./images/vartechlogo.svg" alt="VARTECH" />
           </div>
-          <li><a class="btn-16" href="">HOME</a></li>
-          <li><a href="">SERVICES</a></li>
-          <li><a href="">CONTACT</a></li>
+          <li class="nav-li"><a href="">HOME</a></li>
+          <li class="nav-li"><a href="">SERVICES</a></li>
+          <li class="nav-li"><a href="">CONTACT</a></li>
         </ul>
       </nav>
-      <!-- <div aria-label="soldering" class="carousel">
-        <button class="carousel-button prev">&#10575;</button>
-        <button class="carousel-button next">&#10577;</button>
-        <ul>
-          <li class="slide"><img src="" alt="Soldering #1" /></li>
-          <li class="slide"><img src="" alt="Soldering #2" /></li>
-          <li class="slide"><img src="" alt="Soldering #3" /></li>
-          <li class="slide"><img src="" alt="Soldering #4" /></li>
-        </ul>
-      </div> -->
-      <div class="container"></div>
-        <div class="bubble1"></div>
-        <div class="bubble2"></div>
+      <!-- IMAGE CAROUSEL -->
+      <section aria-label="soldering">
+        <div class="carousel" data-carousel>
+          <button class="carousel-button prev" data-carousel-button="prev">
+            &loarr;
+          </button>
+          <button class="carousel-button next" data-carousel-button="next">
+            &roarr;
+          </button>
+          <ul data-slides>
+            <li class="slide" data-active>
+              <img
+                src="/images/Slider/1.jpg"
+                alt="Soldering #1"
+              />
+            </li>
+            <li class="slide">
+              <img
+                src="/images/Slider/2.jpg"
+                alt="Soldering #2"
+              />
+            </li>
+            <li class="slide">
+              <img
+                src="/images/Slider/3.jpg"
+                alt="Soldering #3"
+              />
+            </li>
+            <li class="slide">
+              <img
+                src="/images/Slider/4.jpg"
+                alt="Soldering #4"
+              />
+            </li>
+            <li class="slide">
+              <img
+                src="/images/Slider/5.jpg"
+                alt="Soldering #5"
+              />
+            </li>
+            <li class="slide">
+              <img
+                src="/images/Slider/6.jpg"
+                alt="Soldering #6"
+              />
+            </li>
+            <li class="slide">
+              <img
+                src="/images/Slider/7.jpg"
+                alt="Soldering #7"
+              />
+            </li>
+          </ul>
+        </div>
+      </section>
     </div>
     <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
     <script src="script.js"></script>
