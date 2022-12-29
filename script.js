@@ -133,32 +133,13 @@
 
 document.addEventListener("DOMContentLoaded", main);
 function main() {
-  var index = 0
-  setInterval(() => {
-    const activeSlide = document.querySelector("[data-active]");
-    const slides = activeSlide.closest("[data-slides]");
-    if (index <= [...slides.children].length ) {
-      slides.children[(index += 1)].dataset.active = true;
-      delete activeSlide.dataset.active;
-    }
-    if (index > [...slides.children].length) {
-      slides.children[0].dataset.active = true;
-      delete activeSlide.dataset.active;
-      index = 0;
-    }
-  }, 2000);
-}
-
-/*
-document.addEventListener("DOMContentLoaded", main);
-function main() {
   const btns = document.querySelectorAll("[data-carousel-button]");
   btns.forEach((b) => {
     b.addEventListener("click", () => {
       const offset = b.dataset.carouselButton === "next" ? 1 : -1;
       const slides = b
-        .closest("[data-carousel]")
-        .querySelector("[data-slides]");
+      .closest("[data-carousel]")
+      .querySelector("[data-slides]");
       const activeSlide = slides.querySelector("[data-active]");
       let newIndex = [...slides.children].indexOf(activeSlide) + offset;
       if (newIndex < 0) newIndex = slides.children.length - 1;
@@ -167,5 +148,9 @@ function main() {
       delete activeSlide.dataset.active;
     });
   });
+  setInterval(autoCarousel ,3600);
 }
-*/
+function autoCarousel(){
+  const btns = document.querySelectorAll("[data-carousel-button]");
+  btns[1].click()
+}
