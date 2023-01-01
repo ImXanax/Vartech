@@ -36,6 +36,7 @@ body {
   width: 70px;
   height: 70px;
 }
+
 /* NAV */
 ul.nav-ul {
   margin: 0;
@@ -69,6 +70,10 @@ li.nav-li:hover {
   color: white;
   font-weight: bold;
   text-decoration: none;
+}
+
+.nav-buttons{
+  display: flex;
 }
 
 button.nav-btn {
@@ -107,13 +112,13 @@ button.nav-btn:hover {
   position: absolute;
   background: none;
   border: none;
-  font-size: 3rem;
+  font-size: 2rem;
   z-index: 2;
   top: 50%;
   transform: translateY(-50%);
   cursor: pointer;
   border-radius: 0.25rem;
-  padding: 0 0.5rem;
+  padding: 0 0.2rem;
   background-color: rgba(0, 0, 0, 0.1);
 }
 .carousel-button.next {
@@ -126,7 +131,7 @@ button.nav-btn:hover {
 .carousel-button:hover,
 .carousel-button:focus {
   color: white;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.101);
 }
 .carousel-button:focus {
   outline: 1px solid black;
