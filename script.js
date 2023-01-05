@@ -133,7 +133,7 @@
 
 document.addEventListener("DOMContentLoaded", main);
 
-
+  
 function main() {
   const btns = document.querySelectorAll("[data-carousel-button]");
   btns.forEach((b) => {

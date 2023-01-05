@@ -12,7 +12,7 @@
 }
 
 :root {
-  --pri-clr: rgba(13, 8, 34);
+  --pri-clr: rgb(13, 8, 34);
   --scr-clr: rgb(211, 59, 8);
   --fnt-clr: aliceblue;
   --hvr-pri: var(--scr-clr);
@@ -57,7 +57,7 @@ body {
   flex-direction: row;
   background-color: var(--hdr-bgc);
   width: 100vw;
-  z-index: 999;
+  z-index: 998;
   position: fixed;
 }
 
@@ -136,7 +136,7 @@ button.nav-btn {
 .carousel {
   filter: brightness(50%);
   width: 100vw;
-  height: 80vh;
+  height: 100vh;
   position: relative;
 }
 .carousel > ul {
@@ -196,7 +196,31 @@ button.nav-btn {
   object-fit: cover;
   object-position: center;
 }
-/* SERVICE SECTION */
+
+/* SERVICEs SECTION */
+.services-section {
+  height: 70vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(
+    180deg,
+    var(--pri-clr) 24%,
+    var(--scr-clr) 100%
+  );
+  align-items: center;
+  flex-direction: row;
+  gap: 25px;
+}
+
+.info-box {
+  height: 400px;
+  width: 300px;
+  background-color: rgba(0, 0, 15, 0.662);
+  backdrop-filter: blur(10px);
+  box-shadow: rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px;
+  z-index: 50;
+}
 
 /* GOOGLE MAP */
 .address {
