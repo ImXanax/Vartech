@@ -203,24 +203,45 @@ button.nav-btn {
   width: 100vw;
   display: flex;
   justify-content: center;
+  align-items: center;
+  flex-direction: row;
   background: linear-gradient(
     180deg,
     var(--pri-clr) 24%,
     var(--scr-clr) 100%
   );
-  align-items: center;
-  flex-direction: row;
   gap: 25px;
 }
 
 .info-box {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
   height: 400px;
   width: 300px;
-  background-color: rgba(0, 0, 15, 0.662);
+  background-color: rgba(226, 102, 34, 0.662);
   backdrop-filter: blur(10px);
   box-shadow: rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px;
   z-index: 50;
 }
+
+.info-box > img {
+  height: 40%;
+  width: 100%;
+}
+
+h1.info-box-title{
+  padding: 10px;
+  font-weight: bold;
+}
+
+p.info-box-text{
+  padding: 10px;
+  overflow-y: scroll;
+}
+
 
 /* GOOGLE MAP */
 .address {
