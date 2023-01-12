@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="style.css" />
     <link rel="icon" type="image/x-icon" href="images/mainlogo.svg" />
+    <script defer src="scroll.js"></script>
     <title>VARTECH</title>
   </head>
   <body>
@@ -30,7 +31,7 @@
               />
             </svg>
           </div>
-          <!-- SING UP -->
+          <!-- SIGN UP -->
           <button class="nav-btn">
             <svg style="width: 27px; height: 27px" viewBox="0 0 24 24">
               <path
@@ -50,7 +51,7 @@
         </section>
       </nav>
       <!-- IMAGE CAROUSEL -->
-      <section aria-label="soldering">
+      <section class="carousel-section" aria-label="soldering">
         <div class="carousel" data-carousel>
           <button class="carousel-button prev" data-carousel-button="prev">
             <!-- LEFT ARROW -->
@@ -98,7 +99,7 @@
 
       <!-- SERVICES -->
       <section class="services-section">
-        <div class="info-box">
+        <div class="info-box hidden">
           <img src="/images/banner3.jpg" alt="" />
           <h1 class="info-box-title">ON-SITE REPAIR</h1>
           <p class="info-box-text">
@@ -108,7 +109,7 @@
             consectetur blanditiis soluta veritatis explicabo?
           </p>
         </div>
-        <div class="info-box">
+        <div class="info-box hidden">
           <img src="/images/banner3.jpg" alt="" />
           <h1 class="info-box-title">ASSEMBLE</h1>
           <p class="info-box-text">
@@ -118,7 +119,7 @@
             consectetur blanditiis soluta veritatis explicabo?
           </p>
         </div>
-        <div class="info-box">
+        <div class="info-box hidden">
           <img src="/images/banner3.jpg" alt="" />
           <h1 class="info-box-title">Service Title</h1>
           <p class="info-box-text">
@@ -128,7 +129,7 @@
             consectetur blanditiis soluta veritatis explicabo?
           </p>
         </div>
-        <div class="info-box">
+        <div class="info-box hidden">
           <img src="/images/banner3.jpg" alt="" />
           <h1 class="info-box-title">Service Title</h1>
           <p class="info-box-text">
@@ -140,7 +141,7 @@
         </div>
       </section>
       <!-- GOOGLE MAP -->
-      <!-- <div class="address">
+      <div class="address">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3254.9980404407047!2d51.638161910955056!3d35.330870149027696!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f91979164f60f19%3A0x29dfa8301bf63177!2z2qnYp9mF2b7bjNmI2KrYsSDZiNin2LHYqtqp!5e0!3m2!1sen!2suk!4v1672854489087!5m2!1sen!2suk"
           width="100%"
@@ -150,7 +151,7 @@
           loading="lazy"
           referrerpolicy="no-referrer-when-downgrade"
         ></iframe>
-      </div> -->
+      </div>
     </div>
     <script src="https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js"></script>
     <script src="script.js"></script>

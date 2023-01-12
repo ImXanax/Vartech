@@ -15,9 +15,12 @@
   --pri-clr: rgb(13, 8, 34);
   --scr-clr: rgb(211, 59, 8);
   --fnt-clr: aliceblue;
+  --bak-ds1: rgba(232, 58, 0, 0.547);
+  --bak-ds2: rgba(0, 0, 0, 0.667);
+  --hdr-bgc: none;
   --hvr-pri: var(--scr-clr);
   --logo: url(images/vartechlogo.svg);
-  --hdr-bgc: none;
+  --cro-btn: none;
 }
 
 ::-webkit-scrollbar {
@@ -47,6 +50,7 @@ body {
   --fnt-clr: black;
   --logo: url(images/logolightmode.svg);
   --hdr-bgc: var(--pri-clr);
+  --cro-btn: invert();
 }
 
 /* HEADER */
@@ -67,7 +71,11 @@ body {
   height: 50px;
   content: var(--logo);
   filter: var(--logo);
-  filter: drop-shadow(0px 2px 1px rgba(0, 0, 0, 0.667));
+  filter: drop-shadow(0px 2px 1px var(--bak-ds2));
+}
+.header-scrl {
+  background-color: var(--pri-clr);
+  transition: all 600ms ease-in-out;
 }
 
 /* NAV */
@@ -127,7 +135,7 @@ button.nav-btn {
   width: 30px;
 }
 .nav-btn > svg:hover {
-  filter: drop-shadow(0px 2px 4px rgba(232, 58, 0, 0.547));
+  filter: drop-shadow(0px 2px 4px var(--bak-ds1));
   color: var(--hvr-pri);
 }
 
@@ -146,6 +154,7 @@ button.nav-btn {
 }
 .carousel-button {
   color: var(--fnt-clr);
+  filter: var(--cro-btn);
   position: absolute;
   background: none;
   border: none;
@@ -205,26 +214,40 @@ button.nav-btn {
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  background: linear-gradient(
-    180deg,
-    var(--pri-clr) 24%,
-    var(--scr-clr) 100%
-  );
+  background: linear-gradient(180deg, var(--pri-clr) 50%, var(--scr-clr) 100%);
   gap: 25px;
 }
 
 .info-box {
   display: flex;
+  border-radius: 1%;
+
   justify-content: flex-start;
   align-items: center;
   text-align: center;
   flex-direction: column;
   height: 400px;
   width: 300px;
-  background-color: rgba(226, 102, 34, 0.662);
+  background-color: var(--pri-clr);
   backdrop-filter: blur(10px);
   box-shadow: rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px;
   z-index: 50;
+}
+
+.info-box:nth-child(1) {
+  transition-delay: 100ms;
+}
+
+.info-box:nth-child(2) {
+  transition-delay: 300ms;
+}
+
+.info-box:nth-child(3) {
+  transition-delay: 500ms;
+}
+
+.info-box:nth-child(4) {
+  transition-delay: 700ms;
 }
 
 .info-box > img {
@@ -232,16 +255,27 @@ button.nav-btn {
   width: 100%;
 }
 
-h1.info-box-title{
+h1.info-box-title {
   padding: 10px;
   font-weight: bold;
 }
 
-p.info-box-text{
+p.info-box-text {
   padding: 10px;
   overflow-y: scroll;
 }
 
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateX(-100%);
+  transition: all 1s;
+}
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateX(0);
+}
 
 /* GOOGLE MAP */
 .address {
