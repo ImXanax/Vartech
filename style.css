@@ -42,11 +42,11 @@ body {
   overflow-x: hidden;
   background-color: var(--pri-clr);
   color: var(--fnt-clr);
+  scroll-behavior: smooth;
 }
 
 .light {
   --pri-clr: aliceblue;
-  --scr-clr: rgba(13, 8, 34);
   --fnt-clr: black;
   --logo: url(images/logolightmode.svg);
   --hdr-bgc: var(--pri-clr);
@@ -118,6 +118,7 @@ li.nav-li:hover {
   align-items: center;
   gap: 30px;
   margin-right: 30px;
+  cursor: pointer;
 }
 
 .nav-btn {
@@ -208,61 +209,41 @@ button.nav-btn {
 
 /* SERVICEs SECTION */
 .services-section {
-  height: 70vh;
-  width: 100vw;
   display: flex;
+  flex-direction: column;
+  max-width: 100vw;
+  background: linear-gradient(180deg, var(--pri-clr) 50%, var(--scr-clr) 100%);
+}
+.info-box{
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  background: linear-gradient(180deg, var(--pri-clr) 50%, var(--scr-clr) 100%);
-  gap: 25px;
+  font-size:1rem;
+}
+svg.info-box{
+  min-height: 70vh;
+} 
+
+.info-box-content{
+  padding: 1rem;
 }
 
-.info-box {
-  display: flex;
-  border-radius: 1%;
-
-  justify-content: flex-start;
-  align-items: center;
-  text-align: center;
-  flex-direction: column;
-  height: 400px;
-  width: 300px;
-  background-color: var(--pri-clr);
-  backdrop-filter: blur(10px);
-  box-shadow: rgb(0 0 0 / 30%) 0px 19px 38px, rgb(0 0 0 / 22%) 0px 15px 12px;
-  z-index: 50;
-}
 
 .info-box:nth-child(1) {
-  transition-delay: 100ms;
-}
-
-.info-box:nth-child(2) {
   transition-delay: 300ms;
 }
 
+.info-box:nth-child(2) {
+  transition-delay: 100ms;
+}
+
 .info-box:nth-child(3) {
-  transition-delay: 500ms;
+  transition-delay: 300ms;
 }
 
 .info-box:nth-child(4) {
-  transition-delay: 700ms;
-}
-
-.info-box > img {
-  height: 40%;
-  width: 100%;
-}
-
-h1.info-box-title {
-  padding: 10px;
-  font-weight: bold;
-}
-
-p.info-box-text {
-  padding: 10px;
-  overflow-y: scroll;
+  transition-delay: 100ms;
 }
 
 .hidden {
@@ -283,4 +264,14 @@ p.info-box-text {
   align-items: center;
   justify-content: center;
   margin: auto;
+}
+
+
+@media screen and (max-width: 500px) {
+  .info-box{
+    flex-direction: column;
+  }
+  ul.nav-ul{
+    display: none;
+  }
 }
