@@ -122,7 +122,11 @@ li.nav-li:hover {
 }
 
 .nav-btn {
-  height: 27px;
+  height: 100%;
+}
+.nav-btn > svg {
+  height: 25px;
+  width: 25px;
 }
 
 button.nav-btn {
@@ -130,10 +134,6 @@ button.nav-btn {
   border: none;
   color: var(--fnt-clr);
   transition: border 200ms ease-in-out;
-}
-.nav-btn > svg {
-  height: 30px;
-  width: 30px;
 }
 .nav-btn > svg:hover {
   filter: drop-shadow(0px 2px 4px var(--bak-ds1));
@@ -214,21 +214,21 @@ button.nav-btn {
   max-width: 100vw;
   background: linear-gradient(180deg, var(--pri-clr) 50%, var(--scr-clr) 100%);
 }
-.info-box{
+.info-box {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  font-size:1rem;
-}
-svg.info-box{
-  min-height: 70vh;
-} 
-
-.info-box-content{
-  padding: 1rem;
+  font-size: 1rem;
 }
 
+.info-box > svg {
+  min-height: 25vh;
+}
+
+.info-box-content {
+  padding: 1rem 2.5rem;
+}
 
 .info-box:nth-child(1) {
   transition-delay: 300ms;
@@ -266,13 +266,11 @@ svg.info-box{
   margin: auto;
 }
 
-
 @media screen and (max-width: 500px) {
-  .info-box{
+  .info-box {
     flex-direction: column;
   }
-  ul.nav-ul{
+  ul.nav-ul {
     display: none;
-
   }
 }
