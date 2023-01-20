@@ -25,6 +25,6 @@ const carouselObserver = new IntersectionObserver((enteries) => {
     }
   });
 }, carouselOptions);
-const carouselSection = document.querySelector(".carousel-section");
+const carouselSection = document.querySelector(".carousel-section-image");
 const headerEl = document.querySelector(".header");
 carouselObserver.observe(carouselSection);
