@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Varela+Round&display=swap");
+@font-face {
+  font-family: Shabnam;
+  src: url('/fonts/Shabnam.ttf') format('truetype');
+  font-weight: normal;
+}
 
 *,
 *::after,
@@ -8,13 +13,13 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Varela Round", sans-serif;
 }
 
 :root {
   --pri-clr: rgb(13, 8, 34);
   --scr-clr: rgb(211, 59, 8);
   --fnt-clr: aliceblue;
+  --fnt-lan: "Varela Round", sans-serif;
   --sli-bgc:var(--pri-clr);
   --bak-ds1: rgba(232, 58, 0, 0.547);
   --bak-ds2: rgba(0, 0, 0, 0.667);
@@ -43,7 +48,8 @@ body {
   overflow-x: hidden;
   background-color: var(--pri-clr);
   color: var(--fnt-clr);
-  scroll-behavior: smooth;
+  scroll-behavior: smooth; 
+  font-family: var(--fnt-lan);
 }
 
 .light {
@@ -52,6 +58,9 @@ body {
   --logo: url(images/logolightmode.svg);
   --hdr-bgc: var(--pri-clr);
   --cro-btn: invert();
+}
+.lan{
+  --fnt-lan: Shabnam, sans-serif;
 }
 
 /* HEADER */
