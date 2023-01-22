@@ -25,12 +25,11 @@
   --hvr-pri: var(--scr-clr);
   --hdr-bgc: none;
   --cro-btn: none;
-  --brand-filter:none;
+  --brand-filter: none;
 
   --fnt-lan: "Varela Round", sans-serif;
   --logo: url(./images/vartechlogo.svg);
   --wave: url(./images/waveDark.svg);
-
 }
 
 ::-webkit-scrollbar {
@@ -237,7 +236,7 @@ button.nav-btn {
   align-items: center;
   font-size: 1rem;
 }
-.info-box > svg {
+.info-box > img {
   min-width: 50%;
 }
 
@@ -275,9 +274,9 @@ button.nav-btn {
 }
 
 /* WAVE */
-.wave > img{
+.wave > img {
   content: var(--wave);
-  transform: translateY(5px);
+  transform: translateY(10px);
 }
 
 /* BRAND CAROUSEL */
@@ -286,51 +285,45 @@ button.nav-btn {
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 10));
+    transform: translateX(calc(-200%));
   }
 }
+
 .slider {
   background-color: var(--pri-clr);
-  position: relative;
-  height: 120px;
-  width: auto;
-  margin: auto;
+  height: 110px;
   overflow: hidden;
 }
-.slider .slider-track {
-  animation: scroll 40s linear infinite;
-  display: flex;
-  width: calc(190px * 35);
-}
 
-.slider .brand {
-  height: 100px;
-  width: 100px;
-  filter: var(--brand-filter);
+.slider-track {
+  animation: scroll 20s linear infinite;
+  display: flex;
+  width: 100%;
 }
 
 ul.slider-track {
+  display: flex;
   margin: 0;
   padding: 0;
   list-style: none;
-  display: flex;
-  text-align: center;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: row;
 }
-.slider-track {
+.b1{
+  display: flex;
+}
+.brand {
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-.brand > img {
-  object-fit: contain;
-  height: 120px;
-  width: 120px;
-  filter: grayscale(100%);
+  height: 100px;
+  width: 200px;
+  filter: var(--brand-filter);
 }
 
+.brand > img {
+  object-fit: contain;
+  max-width: 100px;
+  max-height: 100px;
+  filter: grayscale(100%);
+}
 .brand > img:hover {
   filter: none;
 }
@@ -348,12 +341,12 @@ ul.slider-track {
   background-image: url(./images/circuit-board.svg);
 }
 
-.contact-overlay{
+.contact-overlay {
   width: 60vw;
   background-color: var(--pri-clr);
 }
 
-.socials{
+.socials {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -362,7 +355,6 @@ ul.slider-track {
   background-color: var(--pri-clr);
 }
 .card {
-  
   width: 200px;
   height: 100px;
 
@@ -384,7 +376,7 @@ ul.slider-track {
 }
 
 /* GOOGLE MAP */
-.address iframe{
+.address iframe {
   height: 100vh;
   width: 100vw;
 }
