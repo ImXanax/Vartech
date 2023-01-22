@@ -3,7 +3,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Varela+Round&display=swap");
 @font-face {
   font-family: Shabnam;
-  src: url('./fonts/Shabnam.ttf') format('truetype');
+  src: url("./fonts/Shabnam.ttf") format("truetype");
   font-weight: normal;
 }
 
@@ -16,17 +16,21 @@
 }
 
 :root {
-  --pri-clr: rgb(13, 8, 34);
-  --scr-clr: rgb(211, 59, 8);
+  --pri-clr: rgba(13, 8, 34);
+  --scr-clr: rgba(211, 59, 8);
   --fnt-clr: aliceblue;
-  --fnt-lan: "Varela Round" , sans-serif;
-  --sli-bgc:var(--pri-clr);
   --bak-ds1: rgba(232, 58, 0, 0.547);
   --bak-ds2: rgba(0, 0, 0, 0.667);
-  --hdr-bgc: none;
+  --sli-bgc: var(--pri-clr);
   --hvr-pri: var(--scr-clr);
-  --logo: url(./images/vartechlogo.svg);
+  --hdr-bgc: none;
   --cro-btn: none;
+  --brand-filter:none;
+
+  --fnt-lan: "Varela Round", sans-serif;
+  --logo: url(./images/vartechlogo.svg);
+  --wave: url(./images/waveDark.svg);
+
 }
 
 ::-webkit-scrollbar {
@@ -48,18 +52,20 @@ body {
   overflow-x: hidden;
   background-color: var(--pri-clr);
   color: var(--fnt-clr);
-  scroll-behavior: smooth; 
+  scroll-behavior: smooth;
   font-family: var(--fnt-lan);
 }
 
 .light {
-  --pri-clr: aliceblue;
+  --pri-clr: #f0f8ff;
   --fnt-clr: black;
-  --logo: url(./images/logolightmode.svg);
   --hdr-bgc: var(--pri-clr);
   --cro-btn: invert();
+  --logo: url(./images/logolightmode.svg);
+  --wave: url(./images/waveLight.svg);
+  --brand-filter: invert();
 }
-.lan{
+.lan {
   --fnt-lan: Shabnam, sans-serif;
 }
 
@@ -268,6 +274,12 @@ button.nav-btn {
   transform: translateX(0);
 }
 
+/* WAVE */
+.wave > img{
+  content: var(--wave);
+  transform: translateY(5px);
+}
+
 /* BRAND CAROUSEL */
 @keyframes scroll {
   0% {
@@ -278,7 +290,7 @@ button.nav-btn {
   }
 }
 .slider {
-  background-color: var(--sli-bgc);
+  background-color: var(--pri-clr);
   position: relative;
   height: 120px;
   width: auto;
@@ -294,6 +306,7 @@ button.nav-btn {
 .slider .brand {
   height: 100px;
   width: 100px;
+  filter: var(--brand-filter);
 }
 
 ul.slider-track {
@@ -318,16 +331,62 @@ ul.slider-track {
   filter: grayscale(100%);
 }
 
-
 .brand > img:hover {
   filter: none;
 }
-/* GOOGLE MAP */
-.address {
+
+/* CONTACT */
+.contact {
   display: flex;
-  align-items: center;
   justify-content: center;
-  margin: auto;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 0.5rem;
+  background-color: var(--pri-clr);
+  background-image: url(./images/circuit-board.svg);
+}
+
+.contact-overlay{
+  width: 60vw;
+  background-color: var(--pri-clr);
+}
+
+.socials{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  background-image: url(./images/topography.svg);
+  background-color: var(--pri-clr);
+}
+.card {
+  
+  width: 200px;
+  height: 100px;
+
+  margin: 15px;
+
+  border-radius: 2px;
+  border: 2px solid red;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.card:hover {
+  border: none;
+  background-color: var(--scr-clr);
+  background-image: none;
+}
+
+/* GOOGLE MAP */
+.address iframe{
+  height: 100vh;
+  width: 100vw;
 }
 
 @media screen and (max-width: 500px) {
