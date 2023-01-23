@@ -26,7 +26,7 @@
   --hdr-bgc: none;
   --cro-btn: none;
   --brand-filter: none;
-
+  --map-filter: grayscale(50%) invert(100%);
   --fnt-lan: "Varela Round", sans-serif;
   --logo: url(./images/vartechlogo.svg);
   --wave: url(./images/waveDark.svg);
@@ -63,6 +63,7 @@ body {
   --logo: url(./images/logolightmode.svg);
   --wave: url(./images/waveLight.svg);
   --brand-filter: invert();
+  --map-filter: none;
 }
 .lan {
   --fnt-lan: Shabnam, sans-serif;
@@ -274,6 +275,10 @@ button.nav-btn {
 }
 
 /* WAVE */
+.wave{
+  height: 100%;
+  width: 100%;
+}
 .wave > img {
   content: var(--wave);
   transform: translateY(10px);
@@ -307,7 +312,7 @@ ul.slider-track {
   padding: 0;
   list-style: none;
 }
-.b1{
+.b1 {
   display: flex;
 }
 .brand {
@@ -331,54 +336,141 @@ ul.slider-track {
 /* CONTACT */
 .contact {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 10px;
-  padding: 0.5rem;
-  background-color: var(--pri-clr);
-  background-image: url(./images/circuit-board.svg);
-}
-
-.contact-overlay {
-  width: 60vw;
-  background-color: var(--pri-clr);
-}
-
-.socials {
-  display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
   background-image: url(./images/topography.svg);
   background-color: var(--pri-clr);
 }
-.card {
-  width: 200px;
+.socials {
+  display: flex;
+  width: 50vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.socials-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.socials-logo img {
+  width: 100px;
   height: 100px;
-
-  margin: 15px;
-
-  border-radius: 2px;
-  border: 2px solid red;
-
+  content: var(--logo);
+}
+.socials-description {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 0px 1rem;
+}
+.socials-links {
+  display: flex;
+  flex-direction: row;
+}
+.socials-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0.3rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
 }
+.socials-icon > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-.card:hover {
-  border: none;
-  background-color: var(--scr-clr);
+.socials-icon:hover {
+  background-color: transparent;
   background-image: none;
 }
 
+.socials-icon:nth-child(1) {
+  transition-delay: 500ms;
+}
+
+.socials-icon:nth-child(2) {
+  transition-delay: 400ms;
+}
+
+.socials-icon:nth-child(3) {
+  transition-delay: 300ms;
+}
+
+.socials-icon:nth-child(4) {
+  transition-delay: 100ms;
+}
 /* GOOGLE MAP */
+
 .address iframe {
+  width: 50vw;
   height: 100vh;
-  width: 100vw;
+  filter: var(--map-filter);
+}
+
+.success{
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 20vw;
+  min-width: 20vh;
+  height: 50px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: bold;
+  left: 0;
+  right: 0;
+  top: 10%;
+  bottom: 0;
+  background-color: rgb(29, 204, 119);
+  border-radius: 5px;
+  z-index: 99999;
+  animation: done 5s ease-out;
+  opacity: 0;
+}
+.fail{
+  position: absolute;
+  max-width: 20vw;
+  min-width: 20vh;
+  height: 50px;
+  margin: 0 auto;
+  left: 0;
+  right: 0;
+  top: 10%;
+  bottom: 0;
+  background-color: rgb(207, 38, 38);
+  border-radius: 5px;
+  z-index: 99999;
+  animation: done 20s;
+  opacity: 0;
+}
+@keyframes done {
+  5%{
+    transform: translateY(20px);
+    opacity: 0.5;
+  } 
+  15%{
+    opacity: 1;
+  } 
+  55%{
+    transform: translateY(20px);
+    opacity: 1;
+  } 
+  75%{
+    opacity: 0.5;
+  }
+  100%{
+    opacity: 0;
+    transform: translateY(-20px);
+  }
 }
 
 @media screen and (max-width: 500px) {
@@ -387,5 +479,13 @@ ul.slider-track {
   }
   ul.nav-ul {
     display: none;
+  }
+  .contact {
+    flex-direction: column;
+  }
+  .socials,
+  .address iframe {
+    width: 100vw;
+    height: 100vh;
   }
 }
