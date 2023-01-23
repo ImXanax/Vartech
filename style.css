@@ -6,6 +6,15 @@
   src: url("./fonts/Shabnam.ttf") format("truetype");
   font-weight: normal;
 }
+@font-face {
+  font-family: Vartech;
+  src: url(./fonts/Vartech\ reg.otf) format("opentype");
+}
+@font-face {
+  font-family: Vartech;
+  font-style: italic;
+  src: url(./fonts/Vartech\ reg\ it.otf) format("opentype");
+}
 
 *,
 *::after,
@@ -28,6 +37,7 @@
   --brand-filter: none;
   --map-filter: grayscale(50%) invert(100%);
   --fnt-lan: "Varela Round", sans-serif;
+  --fnt-hdr: Vartech , "Varela Round" , sans-serif;
   --logo: url(./images/vartechlogo.svg);
   --wave: url(./images/waveDark.svg);
 }
@@ -96,6 +106,7 @@ body {
 
 /* NAV */
 ul.nav-ul {
+  font-family: var(--fnt-hdr);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -103,17 +114,19 @@ ul.nav-ul {
   text-align: center;
   justify-content: space-evenly;
   align-items: center;
+  gap: 20px;
+  font-size: 1rem;
   flex-direction: row;
 }
 
 li.nav-li {
+  min-width: 10vw;
+  min-height: 9vh;
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
 
-  width: 100px;
-  height: 65px;
   cursor: pointer;
   z-index: 3;
 }
@@ -355,6 +368,9 @@ ul.slider-track {
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+.socials-logo > p {
+  font-family: Vartech, "Varela Round" , sans-serif;
 }
 .socials-logo img {
   width: 100px;
