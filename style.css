@@ -8,12 +8,12 @@
 }
 @font-face {
   font-family: Vartech;
-  src: url(./fonts/Vartech\ reg.otf) format("opentype");
+  src: url("./fonts/Vartech\ reg.otf") format("opentype");
 }
 @font-face {
   font-family: Vartech;
   font-style: italic;
-  src: url(./fonts/Vartech\ reg\ it.otf) format("opentype");
+  src: url("./fonts/Vartech\ reg\ it.otf") format("opentype");
 }
 
 *,
