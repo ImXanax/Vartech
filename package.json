@@ -1,0 +1,27 @@
+{
+  "name": "vartech",
+  "version": "1.0.0",
+  "description": "A website designed for a computer services & repair shop called VARTECH",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "x": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ImXanax/Vartech.git"
+  },
+  "author": "Xanax",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ImXanax/Vartech/issues"
+  },
+  "homepage": "https://github.com/ImXanax/Vartech#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^4.13.0",
+    "path": "^0.12.7"
+  }
+}
