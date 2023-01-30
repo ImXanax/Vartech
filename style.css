@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Teko:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Varela+Round&display=swap");
+
 @font-face {
   font-family: Shabnam;
   src: url("./fonts/Shabnam.ttf") format("truetype");
@@ -30,6 +31,7 @@
   --fnt-clr: aliceblue;
   --bak-ds1: rgba(232, 58, 0, 0.547);
   --bak-ds2: rgba(0, 0, 0, 0.667);
+  --bak-drp: rgba(0,0,0,0.1);
   --sli-bgc: var(--pri-clr);
   --hvr-pri: var(--scr-clr);
   --hdr-bgc: none;
@@ -37,7 +39,7 @@
   --brand-filter: none;
   --map-filter: grayscale(50%) invert(100%);
   --fnt-lan: "Varela Round", sans-serif;
-  --fnt-hdr: Vartech , "Varela Round" , sans-serif;
+  --fnt-hdr: Vartech, "Varela Round", sans-serif;
   --logo: url(./images/vartechlogo.svg);
   --wave: url(./images/waveDark.svg);
 }
@@ -68,6 +70,7 @@ body {
 .light {
   --pri-clr: #f0f8ff;
   --fnt-clr: black;
+  --bak-drp: rgba(240, 248, 255, 0.438);
   --hdr-bgc: var(--pri-clr);
   --cro-btn: invert();
   --logo: url(./images/logolightmode.svg);
@@ -195,7 +198,7 @@ button.nav-btn {
   cursor: pointer;
   border-radius: 0.25rem;
   padding: 0 0.2rem;
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--bak-drp);
 }
 .carousel-image-button.next {
   right: 1rem;
@@ -207,7 +210,7 @@ button.nav-btn {
 .carousel-image-button:hover,
 .carousel-image-button:focus {
   color: var(--fnt-clr);
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: var(--bak-drp);
 }
 .carousel-image-button:focus {
   outline: 1px solid var(--fnt-clr);
@@ -288,7 +291,7 @@ button.nav-btn {
 }
 
 /* WAVE */
-.wave{
+.wave {
   height: 100%;
   width: 100%;
 }
@@ -363,6 +366,14 @@ ul.slider-track {
   align-items: center;
   flex-direction: column;
 }
+.socials-wrapper {
+  width: 90%;
+  height: auto;
+  background-color: var(--bak-drp);
+  backdrop-filter: blur(1.8px);
+  border-radius: 5%;
+  border: 2px solid rgba(230, 34, 20, 0.443);
+}
 .socials-logo {
   display: flex;
   justify-content: center;
@@ -370,28 +381,54 @@ ul.slider-track {
   flex-direction: column;
 }
 .socials-logo > p {
-  font-family: Vartech, "Varela Round" , sans-serif;
+  font-family: Vartech, "Varela Round", sans-serif;
+  margin-bottom: 1rem;
 }
 .socials-logo img {
   width: 100px;
   height: 100px;
   content: var(--logo);
 }
-.socials-description {
+.socials-description{
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   padding: 1rem;
   margin: 0px 1rem;
 }
+.socials-title{
+  font-family: Vartech, "Varela Round", sans-serif;
+  font-weight: 0;
+  font-size:  1.2rem;
+}
+.socials-number{
+  text-align: center;
+  padding: 0.5rem;
+}
+#numbers{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap:1rem;
+}
+#numbers > p:hover{
+ color: var(--scr-clr);
+}
+.socials-body{
+  padding: 0.5rem;
+}
 .socials-links {
   display: flex;
   flex-direction: row;
+  padding: 0.2rem;
+  justify-content: center;
+  align-items: center;
 }
 .socials-icon {
   width: 40px;
   height: 40px;
-  margin: 0.3rem;
+  margin: 0.4rem;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -431,7 +468,7 @@ ul.slider-track {
   filter: var(--map-filter);
 }
 
-.success{
+.success {
   position: absolute;
   display: flex;
   justify-content: center;
@@ -452,7 +489,7 @@ ul.slider-track {
   animation: done 5s ease-out;
   opacity: 0;
 }
-.fail{
+.fail {
   position: absolute;
   max-width: 20vw;
   min-width: 20vh;
@@ -469,21 +506,21 @@ ul.slider-track {
   opacity: 0;
 }
 @keyframes done {
-  5%{
+  5% {
     transform: translateY(20px);
-    opacity: 0.5;
-  } 
-  15%{
-    opacity: 1;
-  } 
-  55%{
-    transform: translateY(20px);
-    opacity: 1;
-  } 
-  75%{
     opacity: 0.5;
   }
-  100%{
+  15% {
+    opacity: 1;
+  }
+  55% {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
     opacity: 0;
     transform: translateY(-20px);
   }
@@ -496,6 +533,8 @@ ul.slider-track {
   ul.nav-ul {
     display: none;
   }
+}
+@media screen and (max-width: 700px) {
   .contact {
     flex-direction: column;
   }

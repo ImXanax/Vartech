@@ -22,7 +22,25 @@ let language = {
       },
       serviceFour: {
         title: "سیستم های گیمینگ",
-        body: "وارتک مشاوره رایگان برای خرید ارائه می دهد و حداقل سیستم مورد نیاز یا توصیه شده را برای بازی های ویدیویی آینده پیشنهاد می کند، ما مطمئن خواهیم شد که در طول بازی های خود دچار تاخیر یا افت فریم نخواهید شد، علاوه بر این اطلاعاتی در مورد اجزایی که نیاز به ارتقا یا ارتقا دارند ارائه خواهیم کرد. تغییر دهید تا از بازی های ویدیویی مورد علاقه خود لذت ببرید",
+        body: "وارتک مشاوره رایگان برای خرید ارائه می دهد و حداقل سیستم مورد نیاز یا توصیه شده را برای بازی های ویدیویی آینده پیشنهاد می کند، ما مطمئن خواهیم شد که در طول بازی های خود دچار تاخیر یا افت فریم نخواهید شد، علاوه بر این اطلاعاتی در مورد اجزایی که نیاز به ارتقا دارند را ارائه خواهیم کرد تا از بازی های ویدیویی مورد علاقه خود لذت ببرید",
+      },
+    },
+    contact: {
+      header: {
+        title: "ارتباط با ما",
+        description:
+          "جهت استعلام موجودی کالا ،مشاوره رایگان خرید و جمع آوری سیستم از درگاه های زیر با ما تماس حاصل نمایید",
+      },
+      address: {
+        title: "آدرس:",
+        description: "تهران، ورامین، پاساژ توحید، طبقه همکف پلاک 10",
+      },
+      schedule: {
+        title: "پاسخگویی حضوری:",
+        description: "شنبه - جمعه: 9 تا 12:30 / 15:30 تا 21:30",
+      },
+      phone: {
+        title: "شماره تماس:",
       },
     },
   },
@@ -50,6 +68,25 @@ let language = {
         body: "Vartech provides free counseling for purchases and suggests minimum or recommended  system requirements for upcoming video games, we will make sure you won't have to endure or experience lag or FPS drops throughout your playthroughs, Moreover we will provide information on components that require upgrade or change for you to enjoy your favorite video games",
       },
     },
+    contact: {
+      header: {
+        title: "CONTACT US",
+        description:
+          "Feel free to reach out for the highest quality computer support and troubleshooting or guidance for building your brand new pc",
+      },
+      address: {
+        title: "ADDRESS:",
+        description:
+          "Hadi Sadeghi, Vartech, St. Marter - Tohid Mall, Varamin, Tehran",
+      },
+      schedule: {
+        title: "BUSINESS HOURS:",
+        description: "Sat - Fri: 9AM - 12:30PM / 3:30PM - 9:30PM",
+      },
+      phone: {
+        title: "CONTACT INFO:",
+      },
+    },
   },
 };
 
@@ -66,6 +103,14 @@ const en = () => {
   document.querySelector(".nav-ul").style.direction = "ltr";
   let infoBoxContent = document.querySelectorAll(".info-box-content");
   infoBoxContent.forEach((el) => {
+    el.style.direction = "ltr";
+  });
+  let contactSectionTitle = document.querySelectorAll(".socials-title");
+  let contactSectionBody = document.querySelectorAll(".socials-body");
+  contactSectionTitle.forEach((el) => {
+    el.style.direction = "ltr";
+  });
+  contactSectionBody.forEach((el) => {
     el.style.direction = "ltr";
   });
 
@@ -90,6 +135,21 @@ const en = () => {
 
   infoBoxTitle[3].textContent = language.en.services.serviceFour.title;
   infoBoxBody[3].textContent = language.en.services.serviceFour.body;
+
+  // CONTACT
+  let h2Elements = document.querySelectorAll("h2.socials-title");
+  let pElements = document.querySelectorAll("p.socials-body");
+
+  h2Elements[0].textContent = language.en.contact.header.title;
+  pElements[0].textContent = language.en.contact.header.description;
+
+  h2Elements[1].textContent = language.en.contact.address.title;
+  pElements[1].textContent = language.en.contact.address.description;
+
+  h2Elements[2].textContent = language.en.contact.schedule.title;
+  pElements[2].textContent = language.en.contact.schedule.description;
+
+  h2Elements[3].textContent = language.en.contact.phone.title;
 };
 
 const fa = () => {
@@ -105,6 +165,14 @@ const fa = () => {
   document.querySelector(".nav-ul").style.direction = "rtl";
   let infoBoxContent = document.querySelectorAll(".info-box-content");
   infoBoxContent.forEach((el) => {
+    el.style.direction = "rtl";
+  });
+  let contactSectionTitle = document.querySelectorAll(".socials-title");
+  let contactSectionBody = document.querySelectorAll(".socials-body");
+  contactSectionTitle.forEach((el) => {
+    el.style.direction = "rtl";
+  });
+  contactSectionBody.forEach((el) => {
     el.style.direction = "rtl";
   });
 
@@ -129,6 +197,21 @@ const fa = () => {
 
   infoBoxTitle[3].textContent = language.fa.services.serviceFour.title;
   infoBoxBody[3].textContent = language.fa.services.serviceFour.body;
+
+  // CONTACT
+  let h2Elements = document.querySelectorAll("h2.socials-title");
+  let pElements = document.querySelectorAll("p.socials-body");
+  console.log(h2Elements);
+  h2Elements[0].textContent = language.fa.contact.header.title;
+  pElements[0].textContent = language.fa.contact.header.description;
+
+  h2Elements[1].textContent = language.fa.contact.address.title;
+  pElements[1].textContent = language.fa.contact.address.description;
+
+  h2Elements[2].textContent = language.fa.contact.schedule.title;
+  pElements[2].textContent = language.fa.contact.schedule.description;
+
+  h2Elements[3].textContent = language.fa.contact.phone.title;
 };
 
 if (languageOption === "fa") {
