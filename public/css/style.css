@@ -76,9 +76,9 @@ body {
   --fnt-clr: black;
   --bak-drp: rgba(240, 248, 255, 0.438);
   --hdr-bgc: var(--pri-clr);
-  --logo: url("./images/logolightmode.svg");
-  --wave: url("./images/waveLight.svg");
-  --board: url("./images/boarddark.svg");
+  --logo: url("../images/logolightmode.svg");
+  --wave: url("../images/waveLight.svg");
+  --board: url("../images/boarddark.svg");
   --icon-filter: none;
   --brand-filter: invert();
   --cro-btn: invert();
@@ -370,7 +370,7 @@ ul.slider-track {
   justify-content: space-evenly;
   align-items: center;
   flex-direction: row;
-  background-image: url(./images/topography.svg);
+  background-image: url("../images/topography.svg");
   background-color: var(--pri-clr);
 }
 .socials {
