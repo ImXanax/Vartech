@@ -4,17 +4,17 @@
 
 @font-face {
   font-family: Shabnam;
-  src: url("./fonts/Shabnam.ttf") format("truetype");
+  src: url("../fonts/Shabnam.ttf") format("truetype");
   font-weight: normal;
 }
 @font-face {
   font-family: Vartech;
-  src: url("./fonts/Vartech\ reg.otf") format("opentype");
+  src: url("../fonts/Vartech\ reg.otf") format("opentype");
 }
 @font-face {
   font-family: Vartech;
   font-style: italic;
-  src: url("./fonts/Vartech\ reg\ it.otf") format("opentype");
+  src: url("../fonts/Vartech\ reg\ it.otf") format("opentype");
 }
 
 *,
@@ -31,17 +31,21 @@
   --fnt-clr: aliceblue;
   --bak-ds1: rgba(232, 58, 0, 0.547);
   --bak-ds2: rgba(0, 0, 0, 0.667);
-  --bak-drp: rgba(0,0,0,0.1);
+  --bak-drp: rgba(0, 0, 0, 0.1);
   --sli-bgc: var(--pri-clr);
   --hvr-pri: var(--scr-clr);
   --hdr-bgc: none;
   --cro-btn: none;
   --brand-filter: none;
+  --icon-filter: invert();
   --map-filter: grayscale(50%) invert(100%);
+
   --fnt-lan: "Varela Round", sans-serif;
   --fnt-hdr: Vartech, "Varela Round", sans-serif;
-  --logo: url(./images/vartechlogo.svg);
-  --wave: url(./images/waveDark.svg);
+
+  --logo: url("../images/vartechlogo.svg");
+  --wave: url("../images/waveDark.svg");
+  --board: url("../images/boardlight.svg");
 }
 
 ::-webkit-scrollbar {
@@ -72,10 +76,12 @@ body {
   --fnt-clr: black;
   --bak-drp: rgba(240, 248, 255, 0.438);
   --hdr-bgc: var(--pri-clr);
-  --cro-btn: invert();
-  --logo: url(./images/logolightmode.svg);
-  --wave: url(./images/waveLight.svg);
+  --logo: url("./images/logolightmode.svg");
+  --wave: url("./images/waveLight.svg");
+  --board: url("./images/boarddark.svg");
+  --icon-filter: none;
   --brand-filter: invert();
+  --cro-btn: invert();
   --map-filter: none;
 }
 .lan {
@@ -93,8 +99,7 @@ body {
   z-index: 998;
   position: fixed;
 }
-
-.header img {
+.logo > img {
   margin: 5px 0px 0px 5px;
   width: 50px;
   height: 50px;
@@ -159,19 +164,29 @@ li.nav-li:hover {
 .nav-btn > svg {
   height: 25px;
   width: 25px;
+  cursor: pointer;
 }
-
+.nav-btn > img {
+  height: 29px;
+  width: 29px;
+  cursor: pointer;
+  filter: var(--icon-filter);
+}
+.nav-btn > a {
+  width: 100%;
+  height: 100%;
+}
 button.nav-btn {
   background-color: transparent;
   border: none;
   color: var(--fnt-clr);
   transition: border 200ms ease-in-out;
+  cursor: pointer;
 }
-.nav-btn > svg:hover {
+.nav-btn > svg:hover{
   filter: drop-shadow(0px 2px 4px var(--bak-ds1));
   color: var(--hvr-pri);
 }
-
 /* CAROUSEL */
 
 .carousel-image {
@@ -389,33 +404,34 @@ ul.slider-track {
   height: 100px;
   content: var(--logo);
 }
-.socials-description{
+.socials-description {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   padding: 1rem;
   margin: 0px 1rem;
 }
-.socials-title{
+.socials-title {
   font-family: Vartech, "Varela Round", sans-serif;
   font-weight: 0;
-  font-size:  1.2rem;
+  font-size: 1.2rem;
 }
-.socials-number{
+.socials-number {
   text-align: center;
   padding: 0.5rem;
 }
-#numbers{
+#numbers {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap:1rem;
+  gap: 1rem;
 }
-#numbers > p:hover{
- color: var(--scr-clr);
+#numbers > p:hover {
+  color: var(--scr-clr);
+  cursor: pointer;
 }
-.socials-body{
+.socials-body {
   padding: 0.5rem;
 }
 .socials-links {

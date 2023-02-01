@@ -201,7 +201,7 @@ const fa = () => {
   // CONTACT
   let h2Elements = document.querySelectorAll("h2.socials-title");
   let pElements = document.querySelectorAll("p.socials-body");
-  console.log(h2Elements);
+
   h2Elements[0].textContent = language.fa.contact.header.title;
   pElements[0].textContent = language.fa.contact.header.description;
 

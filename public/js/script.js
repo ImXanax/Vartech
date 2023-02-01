@@ -33,3 +33,8 @@ const copy = async (a, b) => {
     }
   }
 };
+
+const configBuilder = document.getElementById('configBuilder')
+configBuilder.addEventListener('click',()=>{
+  location.href = 'config'
+})
