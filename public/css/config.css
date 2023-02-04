@@ -26,7 +26,7 @@
 :root {
   --primary-bg-clr: rgba(13, 8, 34);
   --secondary-bg-clr: rgb(212, 58, 19);
-  --parts-bg-clr:rgba(220, 49, 15, 0.772);
+  --parts-bg-clr: rgba(220, 49, 15, 0.772);
   --font-color: aliceblue;
   --background-path: url("../images/circuit-board.svg");
   --font: Vartech, "Varela Round";
@@ -46,7 +46,14 @@ body {
   flex-direction: column;
   padding: 0px 0px 40px 0px;
 }
-.container > button {
+.button-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
+}
+.button-container > button {
   width: 150px;
   height: 80px;
   border: none;
@@ -58,7 +65,7 @@ body {
   box-shadow: 0px 20px var(--secondary-bg-clr);
   transition: all 300ms ease-in-out;
 }
-.container > button:hover {
+.button-container > button:hover {
   box-shadow: 0px 5px var(--secondary-bg-clr);
   transform: translateY(15px);
 }
@@ -82,6 +89,7 @@ body {
   flex-flow: column wrap;
   height: 150px;
   width: 150px;
+  text-align: center;
   backdrop-filter: blur(2px);
   background-color: var(--parts-bg-clr);
   transition: all 300ms ease-in-out;
@@ -102,4 +110,27 @@ body {
 .part > h2 {
   font-size: 1rem;
   margin: 5px;
+}
+.part > input {
+  width: 25%;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  text-align: center;
+  color: var(--font-color);
+  font-family: var(--font);
+}
+.part > input:focus {
+  border: 2px solid var(--secondary-bg-clr);
+}
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+input[type="number"] {
+  -moz-appearance: textfield;
 }

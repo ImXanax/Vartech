@@ -1,9 +1,4 @@
-const options = () => {
-  const allSelected = document.querySelectorAll('div[data-opt="true"]');
-  console.log(allSelected);
-};
-
-const partSelector = () => {
+const partBuilder = () => {
   const container = document.querySelector(".container");
   const section = document.createElement("section");
   section.classList.add("selection");
@@ -33,12 +28,17 @@ const partSelector = () => {
     // h2
     const h2El = document.createElement("h2");
     h2El.textContent = `${nameList[i].toUpperCase()}`;
+    // input
+    const inputEl = document.createElement("input");
+    inputEl.type = "number";
+    inputEl.dataset.opt = "";
     // child management
     divEl.appendChild(imgEl);
     divEl.appendChild(h2El);
+    divEl.appendChild(inputEl);
     section.appendChild(divEl);
   }
-  container.appendChild(section);
+  container.prepend(section);
 
   // selection animation & data-opt update
   const allParts = document.querySelectorAll(".part");
@@ -47,10 +47,19 @@ const partSelector = () => {
       if (el.classList.contains("selected")) {
         el.classList.remove("selected");
         el.dataset.opt = "";
+        el.lastChild.dataset.opt = "";
       } else {
         el.classList.add("selected");
         el.dataset.opt = true;
+        el.lastChild.dataset.opt = true;
       }
     });
+  });
+};
+
+const fetchOptions = () => {
+  const allSelected = document.querySelectorAll('div[data-opt="true"]');
+  allSelected.forEach((el) => {
+    console.log(el.lastChild.value);
   });
 };
