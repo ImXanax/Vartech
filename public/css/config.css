@@ -22,12 +22,22 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+:root {
+  --primary-bg-clr: rgba(13, 8, 34);
+  --secondary-bg-clr: rgb(212, 58, 19);
+  --parts-bg-clr:rgba(220, 49, 15, 0.772);
+  --font-color: aliceblue;
+  --background-path: url("../images/circuit-board.svg");
+  --font: Vartech, "Varela Round";
+}
+
 body {
-  background-image: url("../images/circuit-board.svg");
+  background-image: var(--background-path);
   max-width: 100%;
-  color: aliceblue;
-  background-color: rgba(13, 8, 34);
-  font-family: Vartech, "Varela Round";
+  color: var(--font-color);
+  background-color: var(--primary-bg-clr);
+  font-family: var(--font);
 }
 .container {
   display: flex;
@@ -40,16 +50,16 @@ body {
   width: 150px;
   height: 80px;
   border: none;
-  color: aliceblue;
+  color: var(--font-color);
   font-size: 1.5rem;
   font-family: inherit;
-  background-color: rgba(13, 8, 34);
-  border: 3px solid rgb(212, 58, 19);
-  box-shadow: 0px 20px rgb(212, 58, 19);
+  background-color: var(--primary-bg-clr);
+  border: 3px solid var(--secondary-bg-clr);
+  box-shadow: 0px 20px var(--secondary-bg-clr);
   transition: all 300ms ease-in-out;
 }
 .container > button:hover {
-  box-shadow: 0px 5px rgb(212, 58, 19);
+  box-shadow: 0px 5px var(--secondary-bg-clr);
   transform: translateY(15px);
 }
 
@@ -73,17 +83,17 @@ body {
   height: 150px;
   width: 150px;
   backdrop-filter: blur(2px);
-  background-color: rgba(220, 49, 15, 0.772);
+  background-color: var(--parts-bg-clr);
   transition: all 300ms ease-in-out;
 }
 .part:hover {
   transform: scale(1.04);
-  background-color: rgba(13, 8, 34);
-  border: 3px solid rgb(212, 58, 19);
+  background-color: var(--primary-bg-clr);
+  border: 3px solid var(--secondary-bg-clr);
 }
 .selected {
-  background-color: rgb(15, 15, 42);
-  border: 3px solid aliceblue;
+  background-color: var(--primary-bg-clr);
+  border: 3px solid var(--font-color);
 }
 .part > img {
   width: 50%;
