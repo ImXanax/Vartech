@@ -20,6 +20,10 @@ app.get("/config", (req,res)=>{
   res.render("config")
 })
 
+app.get("*", (req,res)=>{
+  res.render("404")
+})
+
 
 app.listen(process.env.PORT || 5500, () => {
   console.log(`🟢 Server running http://localhost:${port}`);

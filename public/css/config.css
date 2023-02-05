@@ -92,7 +92,8 @@ body {
   text-align: center;
   backdrop-filter: blur(2px);
   background-color: var(--parts-bg-clr);
-  transition: all 300ms ease-in-out;
+  transition: all 300ms ease-in-out; 
+  cursor: pointer;
 }
 .part:hover {
   transform: scale(1.04);

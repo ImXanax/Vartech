@@ -43,7 +43,10 @@ const partBuilder = () => {
   // selection animation & data-opt update
   const allParts = document.querySelectorAll(".part");
   allParts.forEach((el) => {
-    el.addEventListener("click", () => {
+    el.addEventListener("click", (event) => {
+      // ignore INPUT
+      if(event.target.tagName === 'INPUT') return
+      // handle selection data attrb
       if (el.classList.contains("selected")) {
         el.classList.remove("selected");
         el.dataset.opt = "";
