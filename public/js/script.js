@@ -1,4 +1,4 @@
-const copy = async (a, b) => {
+const copy = async (a) => {
   try {
     const popupText = document.body.classList.contains("lan")
       ? "! کپی شد"

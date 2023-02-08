@@ -1,4 +1,6 @@
-const partBuilder = () => {
+document.addEventListener("DOMContentLoaded", initBuilder());
+
+function initBuilder() {
   const container = document.querySelector(".container");
   const section = document.createElement("section");
   section.classList.add("selection");
@@ -45,7 +47,7 @@ const partBuilder = () => {
   allParts.forEach((el) => {
     el.addEventListener("click", (event) => {
       // ignore INPUT
-      if(event.target.tagName === 'INPUT') return
+      if (event.target.tagName === "INPUT") return;
       // handle selection data attrb
       if (el.classList.contains("selected")) {
         el.classList.remove("selected");
@@ -58,6 +60,15 @@ const partBuilder = () => {
       }
     });
   });
+}
+
+const partBuilder = () => {
+  const selectionSection = document.querySelector(".selection");
+  if(selectionSection.style.display === "none"){
+    selectionSection.style.display = "flex"
+  }else{
+    selectionSection.style.display = "none"
+  }
 };
 
 const fetchOptions = () => {
