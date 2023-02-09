@@ -1,6 +1,6 @@
-document.addEventListener("DOMContentLoaded", initBuilder());
+document.addEventListener("DOMContentLoaded", partBuilder());
 
-function initBuilder() {
+function partBuilder() {
   const container = document.querySelector(".container");
   const section = document.createElement("section");
   section.classList.add("selection");
@@ -62,18 +62,41 @@ function initBuilder() {
   });
 }
 
-const partBuilder = () => {
+const menu = () => {
   const selectionSection = document.querySelector(".selection");
-  if(selectionSection.style.display === "none"){
-    selectionSection.style.display = "flex"
-  }else{
-    selectionSection.style.display = "none"
+  if (selectionSection.style.display === "none") {
+    selectionSection.style.display = "flex";
+    setTimeout(() => {
+      selectionSection.classList.remove("hidden");
+      selectionSection.classList.add("show");
+    }, 500);
+  } else {
+    selectionSection.classList.remove("show");
+    selectionSection.classList.add("hidden");
+    setTimeout(() => {
+      selectionSection.style.display = "none";
+    }, 500);
   }
 };
 
 const fetchOptions = () => {
+  const nameList = [
+    "cpu",
+    "hdd",
+    "gpu",
+    "fan",
+    "ram",
+    "psu",
+    "mb",
+    "case",
+    "monitor",
+  ];
   const allSelected = document.querySelectorAll('div[data-opt="true"]');
   allSelected.forEach((el) => {
-    console.log(el.lastChild.value);
+    console.log(
+      `ID:${el.dataset.id} | NAME:${nameList[
+        el.dataset.id
+      ].toUpperCase()} | VALUE:${el.lastChild.value}`
+    );
   });
 };

@@ -52,7 +52,9 @@ body {
   justify-content: center;
   align-items: center;
   gap: 5px;
+  transition: all 1s ease-in-out;
 }
+
 .button-container > button {
   width: 150px;
   height: 80px;
@@ -125,7 +127,21 @@ body {
 .part > input:focus {
   border: 2px solid var(--secondary-bg-clr);
 }
-/* Chrome, Safari, Edge, Opera */
+.hidden {
+  opacity: 0;
+  filter: blur(5px);
+  transform: translateY(-100%);
+  transition: all 1s;
+}
+.show {
+  opacity: 1;
+  filter: blur(0);
+  transform: translateY(0);
+  transition: all 1s;
+}
+
+/* Remove Default Input Arrows 
+Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
