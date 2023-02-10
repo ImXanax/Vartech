@@ -30,13 +30,14 @@
   --font-color: aliceblue;
   --background-path: url("../images/circuit-board.svg");
   --font: Vartech, "Varela Round";
+  --font2: "Varela Round" , "Lato";
 }
 
 body {
   background-image: var(--background-path);
+  background-color: var(--font);
   max-width: 100%;
   color: var(--font-color);
-  background-color: var(--primary-bg-clr);
   font-family: var(--font);
 }
 .container {
@@ -94,8 +95,9 @@ body {
   text-align: center;
   backdrop-filter: blur(2px);
   background-color: var(--parts-bg-clr);
-  transition: all 300ms ease-in-out; 
+  transition: all 300ms ease-in-out;
   cursor: pointer;
+  border-radius: 1rem;
 }
 .part:hover {
   transform: scale(1.04);
@@ -138,6 +140,57 @@ body {
   filter: blur(0);
   transform: translateY(0);
   transition: all 1s;
+}
+
+.conf-table {
+  margin-bottom: 20px;
+  border-collapse: collapse;
+  font-family: var(--font2);
+  border: none;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+}
+
+/* TABLE */
+table {
+  margin-top: 3rem;
+}
+.conf-table th {
+  color: rgb(255, 255, 255);
+  background-color: black;
+  font-weight: normal;
+  -webkit-font-smoothing: antialiased;
+  font-size: 1.5em;
+  font-family: var(--font);
+  padding: 1em;
+}
+.conf-table td {
+  color: #000000;
+  font-size: 1.4em;
+  border: 0.3rem solid black;
+  border-collapse: collapse;
+  text-align: center;
+  background-color: rgb(255, 255, 255);
+}
+td > input {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font-size: 2rem;
+  border: none;
+}
+td > input:focus {
+  outline: none;
+}
+#blank{
+  background-color:transparent;
+  border: none;
+}
+.conf-table tr {
+  -webkit-transition: background 0.3s, box-shadow 0.3s;
+  -moz-transition: background 0.3s, box-shadow 0.3s;
+  transition: background 0.3s, box-shadow 0.3s;
 }
 
 /* Remove Default Input Arrows 
