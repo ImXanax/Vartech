@@ -1,8 +1,14 @@
 const express  = require('express')
+const mongoose = require('mongoose')
 const path = require('path')
 
 const app = express();
 const port = process.env.PORT || 5500;
+mongoose.connect('mongodb://localhost:27017/Shop').then(
+  console.log(`🟢 Mongo Connected`)
+).catch(()=>{
+  console.error()
+})
 
 app.use(express.static(__dirname + "/public"));
 app.use('/css', express.static(__dirname + 'public/css'))

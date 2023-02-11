@@ -1,5 +1,3 @@
-
-
 document.addEventListener("DOMContentLoaded", partBuilder());
 
 function partBuilder() {
@@ -118,18 +116,39 @@ const createTable = () => {
   const container = document.querySelector(".container");
   const table = document.createElement("table");
   table.classList.add("conf-table");
-  
+
+  // Headers
   const mainHeader = document.createElement("tr");
-  const empty = document.createElement("th");
+  const emptyHeader = document.createElement("th");
   const mainTitleOne = document.createElement("th");
   const mainTitleTwo = document.createElement("th");
-  empty.setAttribute("id", "blank");
+  emptyHeader.setAttribute("id", "blank");
   mainTitleOne.textContent = `NAME`;
   mainTitleTwo.textContent = `PRICE`;
-  mainHeader.append(empty, mainTitleOne, mainTitleTwo);
+  mainHeader.append(emptyHeader, mainTitleOne, mainTitleTwo);
   table.appendChild(mainHeader);
+  // Footer Values
+  const mainFooter = document.createElement("tr");
+  const emptyFooter = document.createElement("td");
+  const mainFooterOne = document.createElement("td");
+  const usecaseInput = document.createElement("input");
+  const mainFooterTwo = document.createElement("td");
+  emptyFooter.setAttribute("id", "blank");
+  mainFooterOne.appendChild(usecaseInput);
+  mainFooterTwo.setAttribute("id", "total");
+  mainFooter.append(emptyFooter, mainFooterOne, mainFooterTwo);
+  // Footer Headers
+  const footerHeader = document.createElement("tr");
+  const footerHeaderEmpty = document.createElement("th");
+  const footerHeaderOne = document.createElement("th");
+  const footerHeaderTwo = document.createElement("th");
+  footerHeaderEmpty.setAttribute("id", "blank");
+  footerHeaderOne.textContent = `USE CASE`;
+  footerHeaderTwo.textContent = `TOTAL`;
+  footerHeader.append(footerHeaderEmpty, footerHeaderOne, footerHeaderTwo);
 
   console.log(table);
+
   options.forEach((option) => {
     console.log(option.amount);
     for (let i = 0; i < option.amount; i++) {
@@ -146,7 +165,8 @@ const createTable = () => {
       // PRICE CELL
       const rowPrice = document.createElement("td");
       const priceInput = document.createElement("input");
-
+      priceInput.classList.add("price");
+      priceInput.setAttribute("type", "number");
       // PARENT & CHILDREN NODES APPENDAGE
       rowName.appendChild(nameInput);
       rowPrice.appendChild(priceInput);
@@ -154,7 +174,48 @@ const createTable = () => {
       table.appendChild(tableRow);
     }
   });
-  console.log(table);
+  table.append(mainFooter, footerHeader);
   menu();
   container.appendChild(table);
+  printMode();
+  sum();
 };
+
+const printMode = () => {
+  const hideUI = document.getElementById("blank");
+  hideUI.addEventListener("click", () => {
+    const btnContainer = document.querySelector(".button-container");
+    if (btnContainer.style.display === "none") {
+      btnContainer.style.display = "flex";
+    } else {
+      btnContainer.style.display = "none";
+    }
+  });
+};
+
+const sum = () => {
+  const sumCell = document.getElementById("total");
+  sumCell.addEventListener("click", (e) => {
+    let total = 0;
+    const prices = document.querySelectorAll(".price");
+    prices.forEach((price) => {
+      if (price.value === "") {
+        return 0;
+      } else {
+        total += Number(price.value);
+      }
+    });
+    sumCell.textContent = total;
+  });
+};
+
+/*
+- reset table button
+- hide ui functionality for Print 
+- refactor code 
+- comment 
+- remove loggers
+- option to create more than one table ?
+  |_currently can make more than one (bug?feat?)
+-
+*/
