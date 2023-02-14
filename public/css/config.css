@@ -197,7 +197,15 @@ td input{
   -moz-transition: background 0.3s, box-shadow 0.3s;
   transition: background 0.3s, box-shadow 0.3s;
 }
-
+#empty-cell{
+  background-color:transparent;
+}
+#empty-cell:hover{
+  background-color: rgb(209, 48, 13);
+}
+#total:hover{
+  background-color: aquamarine;
+}
 /* Remove Default Input Arrows 
 Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,

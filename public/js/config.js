@@ -122,7 +122,7 @@ const createTable = () => {
   const emptyHeader = document.createElement("th");
   const mainTitleOne = document.createElement("th");
   const mainTitleTwo = document.createElement("th");
-  emptyHeader.setAttribute("id", "blank");
+  emptyHeader.setAttribute("id", "empty-cell");
   mainTitleOne.textContent = `NAME`;
   mainTitleTwo.textContent = `PRICE`;
   mainHeader.append(emptyHeader, mainTitleOne, mainTitleTwo);
@@ -174,21 +174,52 @@ const createTable = () => {
       table.appendChild(tableRow);
     }
   });
+  // DELETE | RESET buttons
+  const deleteTableBtn = document.createElement("button");
+  const resetTableBtn = document.createElement("button");
+  const buttonContainer = document.querySelector(".button-container");
+  deleteTableBtn.setAttribute("onclick", "deleteTable()");
+  deleteTableBtn.textContent = "DELETE";
+  resetTableBtn.setAttribute("onclick", "resetValues()");
+  resetTableBtn.textContent = "RESET";
+  buttonContainer.append(deleteTableBtn, resetTableBtn);
+
+  // Append main static table header and footer cells
   table.append(mainFooter, footerHeader);
+  // Hides menu after table creation
   menu();
+  // Add table to the DOM
   container.appendChild(table);
+  // Initialize event lisenters for sum calc & hide UI
   printMode();
   sum();
 };
 
 const printMode = () => {
-  const hideUI = document.getElementById("blank");
+  const hideUI = document.getElementById("empty-cell");
   hideUI.addEventListener("click", () => {
     const btnContainer = document.querySelector(".button-container");
     if (btnContainer.style.display === "none") {
       btnContainer.style.display = "flex";
+      // setting bg color
+      document.body.style.backgroundColor = getComputedStyle(
+        document.body
+      ).getPropertyValue(`--primary-bg-clr`);
+      // logger
+      console.log(
+        getComputedStyle(document.body).getPropertyValue(`--primary-bg-clr`)
+      );
+      // setting bg path
+      document.body.style.backgroundImage = getComputedStyle(
+        document.body
+      ).getPropertyValue(`--background-path`);
+      // logger
+      console.log(
+        getComputedStyle(document.body).getPropertyValue(`--background-path`)
+      );
     } else {
       btnContainer.style.display = "none";
+      document.body.style.backgroundColor = "white";
     }
   });
 };
@@ -205,10 +236,33 @@ const sum = () => {
         total += Number(price.value);
       }
     });
-    sumCell.textContent = total;
+    sumCell.textContent = `${total.toLocaleString()}`;
   });
 };
 
+const resetValues = () => {
+  const allInputs = document.querySelectorAll("input");
+  const sumCell = document.getElementById("total");
+  allInputs.forEach((input) => {
+    input.value = "";
+  });
+  sumCell.textContent = "";
+};
+const deleteTable = () => {
+  const table = document.querySelector(".conf-table");
+  menu();
+  table.remove();
+  if (!document.querySelector(".conf-table")) {
+    const deleteTableBtn = document.querySelector(
+      `button[onclick="deleteTable()"]`
+    );
+    const resetTableBtn = document.querySelector(
+      `button[onclick="resetValues()"]`
+    );
+    deleteTableBtn.remove();
+    resetTableBtn.remove();
+  }
+};
 /*
 - reset table button
 - hide ui functionality for Print 

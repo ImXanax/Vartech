@@ -15,6 +15,11 @@
         <div class="logo">
           <img src="./images/vartechlogo.svg" alt="VARTECH" />
         </div>
+        <a href="#" class="nav-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </a>
         <ul class="nav-ul">
           <li
             class="nav-li"
@@ -34,7 +39,14 @@
           >
             CONTACT
           </li>
+          <li
+            class="nav-li"
+            onclick="document.querySelector('hr').scrollIntoView({block:`center`});"
+          >
+            SHOP
+          </li>
         </ul>
+
         <section class="nav-buttons">
           <!-- LANGUAGE -->
           <div class="nav-btn" id="changeLanguageToggle">
@@ -161,6 +173,21 @@
             <p class="info-box-text"></p>
           </div>
         </div>
+        <!-- SHOP -->
+        <h1 class="shop-title">SHOP</h1>
+        <hr />
+        <section class="shop-section">
+          <div class="shop-container">
+            <% products.forEach(product => { %>
+            <div class="product">
+              <img src="<%= product.imgSrc %>" alt="Graphic Card" />
+              <h2 class="product-title"><%= product.title %></h2>
+              <h4 class="product-price"><%= product.price %></h4>
+            </div>
+            <% }) %>
+          </div>
+        </section>
+
         <!-- WAVE -->
         <div class="wave">
           <img src="./images/waveDark.svg" alt="WTF" />

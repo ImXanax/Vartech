@@ -38,3 +38,4 @@ const configBuilder = document.getElementById('configBuilder')
 configBuilder.addEventListener('click',()=>{
   location.href = 'config'
 })
+
