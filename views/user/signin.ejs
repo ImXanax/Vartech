@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/signin.css" rel="stylesheet" type="text/css" />
+    <title>SIGN IN</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+      <!-- SIGN IN -->
+      <div class="form-container sign-in-container">
+        <form action="/user/signin" method="post">
+          <h1>Sign in</h1>
+          <span>or use your account</span>
+          <input type="email" placeholder="Email" autocomplete="username" />
+          <input
+            type="password"
+            placeholder="Password"
+            autocomplete="current-password"
+          />
+          <a href="#">Forgot your password?</a>
+          <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+          <button type="submit">Sign In</button>
+        </form>
+      </div>
+    </div>
+    <script src="/js/light.js"></script>
+  </body>
+</html>

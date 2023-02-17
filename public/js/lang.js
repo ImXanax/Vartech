@@ -6,6 +6,7 @@ let language = {
       home: "خانه",
       service: "خدمات",
       contact: "ارتباط با ما",
+      shop: "فروشگاه",
     },
     services: {
       serviceOne: {
@@ -43,12 +44,23 @@ let language = {
         title: "شماره تماس:",
       },
     },
+    login: {
+      signin: {
+        title: "عضو فروشگاه هستید ؟",
+        button: "ورود",
+      },
+      signup: {
+        title: "! ساخت حساب جدید",
+        button: "ثبت نام",
+      },
+    },
   },
   en: {
     header: {
       home: "HOME",
       service: "SERVICES",
       contact: "CONTACT",
+      shop: "SHOP",
     },
     services: {
       serviceOne: {
@@ -87,6 +99,16 @@ let language = {
         title: "CONTACT INFO:",
       },
     },
+    login: {
+      signin: {
+        title: "Already Have An Account ?",
+        button: "SIGN IN",
+      },
+      signup: {
+        title: "Create A New Account !",
+        button: "SIGN UP",
+      },
+    },
   },
 };
 
@@ -119,6 +141,12 @@ const en = () => {
   nav[0].textContent = language.en.header.home;
   nav[1].textContent = language.en.header.service;
   nav[2].textContent = language.en.header.contact;
+  nav[3].textContent = language.en.header.shop;
+
+  nav[4].textContent = language.en.header.home;
+  nav[5].textContent = language.en.header.service;
+  nav[6].textContent = language.en.header.contact;
+  nav[7].textContent = language.en.header.shop;
 
   //SERVICES
   let infoBoxTitle = document.querySelectorAll(".info-box-title");
@@ -150,12 +178,23 @@ const en = () => {
   pElements[2].textContent = language.en.contact.schedule.description;
 
   h2Elements[3].textContent = language.en.contact.phone.title;
+
+  // LOGIN
+  let loginTitles = document.querySelectorAll(".login-title");
+  loginTitles[0].textContent = language.en.login.signin.title;
+  loginTitles[1].textContent = language.en.login.signup.title;
+  let loginBtns = document.querySelectorAll(".login-btn");
+  loginBtns[0].textContent = language.en.login.signin.button;
+  loginBtns[1].textContent = language.en.login.signup.button;
 };
 
 const fa = () => {
   // CHANGE FONT
   if (!document.body.classList.contains("lan"))
     document.body.classList.add("lan");
+  const allLoginBtns = document.querySelectorAll(`button[type="button"]`)
+  allLoginBtns[0].style.fontFamily = 'Shabnam';
+  allLoginBtns[1].style.fontFamily = 'Shabnam';
   // REPLACE ICON
   const farsiSvg = document.getElementById("changeLanguageToggle");
   farsiSvg.innerHTML = `<svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--emojione" preserveAspectRatio="xMidYMid meet" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M32 2C18.9 2 7.8 10.3 3.7 22h56.6C56.2 10.3 45.1 2 32 2z" fill="#83bf4f"> </path> <path d="M32 62c13.1 0 24.2-8.3 28.3-20H3.7C7.8 53.7 18.9 62 32 62z" fill="#ed4c5c"> </path> <path d="M3.7 22C2.6 25.1 2 28.5 2 32s.6 6.9 1.7 10h56.6c1.1-3.1 1.7-6.5 1.7-10s-.6-6.9-1.7-10H3.7z" fill="#f9f9f9"> </path> <g fill="#ffffff"> <path d="M59.4 44.3l-.3.6h.3v-.6"> </path> <path d="M4.9 44.9l-.3-.6v.6h.3"> </path> <path d="M5.6 18.8h-.5c-.1.1-.2.2-.2.3h.7v-.3"> </path> <path d="M5.6 21v-.3h-1v-.6h1.5v.9h2.2v-2.3H8v1.9h-.6v-1.9h-.3v1.9h-.6v-1.9h-.3v1H4.6c-.1.2-.2.5-.3.7v.6h1.3"> </path> <path d="M5.6 44.9h-.7c0 .1.1.2.2.3h.6l-.1-.3"> </path> <path d="M4.6 44.3h1.5v.9h2.2v-2.3H8v1.9h-.6v-1.9h-.3v1.9h-.6v-1.9h-.3v1H4.5c0 .2.1.3.1.4"> </path> <path d="M5.6 43H4.1c0 .1.1.2.1.3h1.4V43"> </path> <path d="M13.6 21H15v-.3h-1v-.6h1.5v.9h2.2v-2.3h-.3v2h-.6v-2h-.4v2h-.6v-2h-.3v1h-1.9z"> </path> <path d="M13 21v-1.3h-1.3v.4h1v.6h-1.5v-1H9v1.4h.3v-1h1.5v.9z"> </path> <path d="M9.8 20.7h.5v.3h-.5z"> </path> <path d="M8.9 18.8H15v.3H8.9z"> </path> <path d="M11.7 44.3h1v.6h-1.5v-1H9v1.4h.3v-1h1.5v.9H13v-1.3h-1.3z"> </path> <path d="M9.8 44.9h.5v.3h-.5z"> </path> <path d="M8.9 43H15v.3H8.9z"> </path> <path d="M17.4 44.9h-.6v-2h-.4v2h-.6v-2h-.3v1h-1.9v1.3H15v-.3h-1v-.6h1.5v.9h2.2v-2.3h-.3z"> </path> <path d="M23 21h1.3v-.3h-1v-.6h1.5v.9H27v-2.3h-.3v2h-.6v-2h-.3v2h-.6v-2h-.4v1H23z"> </path> <path d="M22.4 21v-1.3H21v.4h1v.6h-1.5v-1h-2.2v1.4h.3v-1h1.6v.9z"> </path> <path d="M18.2 18.8h6.1v.3h-6.1z"> </path> <path d="M19.2 20.7h.5v.3h-.5z"> </path> <path d="M26.7 44.9h-.6v-2h-.3v2h-.6v-2h-.4v1H23v1.3h1.3v-.3h-1v-.6h1.5v.9H27v-2.3h-.3z"> </path> <path d="M19.2 44.9h.5v.3h-.5z"> </path> <path d="M18.2 43h6.1v.3h-6.1z"> </path> <path d="M21 44.3h1v.6h-1.5v-1h-2.2v1.4h.3v-1h1.6v.9h2.2v-1.3H21z"> </path> <path d="M31.7 21v-1.3h-1.3v.4h1v.6h-1.6v-1h-2.2v1.4h.4v-1h1.5v.9z"> </path> <path d="M27.6 18.8h6.1v.3h-6.1z"> </path> <path d="M28.5 20.7h.5v.3h-.5z"> </path> <path d="M32.3 21h1.3v-.3h-1v-.6h1.6v.9h2.2v-2.3H36v2h-.6v-2h-.3v2h-.6v-2h-.3v1h-1.9z"> </path> <path d="M27.6 43h6.1v.3h-6.1z"> </path> <path d="M30.4 44.3h1v.6h-1.6v-1h-2.2v1.4h.4v-1h1.5v.9h2.2v-1.3h-1.3z"> </path> <path d="M28.5 44.9h.5v.3h-.5z"> </path> <path d="M36 44.9h-.6v-2h-.3v2h-.6v-2h-.3v1h-1.9v1.3h1.3v-.3h-1v-.6h1.6v.9h2.2v-2.3H36z"> </path> <path d="M37.8 20.7h.5v.3h-.5z"> </path> <path d="M36.9 18.8H43v.3h-6.1z"> </path> <path d="M41.6 21H43v-.3h-1v-.6h1.5v.9h2.2v-2.3h-.3v2h-.6v-2h-.4v2h-.6v-2h-.3v1h-1.9z"> </path> <path d="M41 21v-1.3h-1.3v.4h1v.6h-1.5v-1H37v1.4h.3v-1h1.5v.9z"> </path> <path d="M36.9 43H43v.3h-6.1z"> </path> <path d="M45.4 44.9h-.6v-2h-.4v2h-.6v-2h-.3v1h-1.9v1.3H43v-.3h-1v-.6h1.5v.9h2.2v-2.3h-.3z"> </path> <path d="M39.7 44.3h1v.6h-1.5v-1H37v1.4h.3v-1h1.5v.9H41v-1.3h-1.3z"> </path> <path d="M37.8 44.9h.5v.3h-.5z"> </path> <path d="M50.4 21v-1.3H49v.4h1v.6h-1.5v-1h-2.2v1.4h.3v-1h1.6v.9z"> </path> <path d="M47.2 20.7h.5v.3h-.5z"> </path> <path d="M46.2 18.8h6.1v.3h-6.1z"> </path> <path d="M51 21h1.3v-.3h-1v-.6h1.5v.9H55v-2.3h-.3v2h-.6v-2h-.3v2h-.6v-2h-.4v1H51z"> </path> <path d="M47.2 44.9h.5v.3h-.5z"> </path> <path d="M49 44.3h1v.6h-1.5v-1h-2.2v1.4h.3v-1h1.6v.9h2.2v-1.3H49z"> </path> <path d="M46.2 43h6.1v.3h-6.1z"> </path> <path d="M54.7 44.9h-.6v-2h-.3v2h-.6v-2h-.4v1H51v1.3h1.3v-.3h-1v-.6h1.5v.9H55v-2.3h-.3z"> </path> <path d="M55.6 19.1h3.5c-.1-.1-.1-.2-.2-.3h-3.4c.1 0 .1.3.1.3"> </path> <path d="M58.4 20.1h1v.6h-1.5v-.9h-2.2v1.3h.3v-1h1.5v.9h2.2v-.5c-.1-.2-.2-.5-.3-.7h-1v.3"> </path> <path d="M56.5 20.7h.5v.3h-.5z"> </path> <path d="M56.5 44.9h.5v.3h-.5z"> </path> <path d="M55.6 43v.3h4.2c0-.1.1-.2.1-.3h-4.3"> </path> <path d="M58.4 44.3h1c.1-.1.1-.2.2-.4h-1.2v.4"> </path> <path d="M57.8 44.9V44h-2.2v1.3h.4v-1h1.5v.9h1.4c.1-.1.1-.2.2-.3h-1.3"> </path> </g> <g fill="#ed4c5c"> <path d="M36.5 33.9c.9-2.6 0-5.5-2-7.3c2.3 3.4 1.4 7.9-1.8 10.3l.2-5.6v-4.4c-.4-.2-.7-.4-.9-.7c-.2.3-.5.6-.9.7v4.4l.2 5.6c-3.3-2.4-4.1-6.9-1.8-10.3c-2.1 1.8-2.9 4.7-2 7.3c.6 1.8 1.8 3.1 3.3 3.9c-.9.3-1.9.5-2.9.5c1.2.4 2.4.4 3.5.2v.2l.6.8l.6-.8v-.2c1.1.2 2.3.2 3.5-.2c-1 0-2-.1-2.9-.5c1.5-.8 2.7-2.2 3.3-3.9"> </path> <path d="M38.7 29.1c-.8-1.3-2.1-2.3-3.6-2.7c3.3 2.5 4 7.2 1.5 10.5c2.8-1.5 3.7-5 2.1-7.8"> </path> <path d="M28.8 26.4c-1.5.4-2.8 1.3-3.6 2.7c-1.6 2.7-.6 6.2 2.1 7.8c-2.4-3.3-1.8-8 1.5-10.5"> </path> <path d="M30.5 26c.5.3 1.2.2 1.5-.3c.3.5 1 .6 1.5.3c.4-.3.6-.8.4-1.3c-.1.6-.6.9-1.2.8c-.3-.1-.5-.2-.7-.5c-.1.3-.4.4-.7.5c-.6.1-1.1-.3-1.2-.8c-.2.5 0 1 .4 1.3"> </path> </g> </g></svg>`;
@@ -181,6 +220,12 @@ const fa = () => {
   nav[0].textContent = language.fa.header.home;
   nav[1].textContent = language.fa.header.service;
   nav[2].textContent = language.fa.header.contact;
+  nav[3].textContent = language.fa.header.shop;
+  /* HEADER HAMBURGER*/
+  nav[4].textContent = language.fa.header.home;
+  nav[5].textContent = language.fa.header.service;
+  nav[6].textContent = language.fa.header.contact;
+  nav[7].textContent = language.fa.header.shop;
 
   //SERVICES
   let infoBoxTitle = document.querySelectorAll(".info-box-title");
@@ -212,6 +257,13 @@ const fa = () => {
   pElements[2].textContent = language.fa.contact.schedule.description;
 
   h2Elements[3].textContent = language.fa.contact.phone.title;
+  // LOGIN
+  let loginTitles = document.querySelectorAll(".login-title");
+  loginTitles[0].textContent = language.fa.login.signin.title;
+  loginTitles[1].textContent = language.fa.login.signup.title;
+  let loginBtns = document.querySelectorAll(".login-btn");
+  loginBtns[0].textContent = language.fa.login.signin.button;
+  loginBtns[1].textContent = language.fa.login.signup.button;
 };
 
 if (languageOption === "fa") {

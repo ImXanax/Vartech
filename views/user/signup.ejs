@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/signup.css" rel="stylesheet" type="text/css" />
+    <title>SIGN UP</title>
+  </head>
+  <body>
+    <div class="container" id="container">
+ 
+      <!-- SIGN UP -->
+      <div class="form-container sign-up-container">
+        <form action="/user/signup" method="post">
+          <h1>Create Account</h1>
+          <span>or use your email for registration</span>
+          <input type="email" name="email" placeholder="Email" autocomplete="email" />
+          <input type="password" name="password" placeholder="Password" autocomplete="current-password" />
+          <input type="hidden" name="_csrf" value="<%=csrfToken%>">
+          <button type="submit">Sign Up</button>
+          <% if (hasErrors) { %>
+            <% messages.forEach(msg => { %>
+             <p style="color:rgb(242, 143, 22);font-weight: bold;"><%=msg%></p>
+            <% }) %>
+          <% } %>
+        </form>
+      </div>
+    </div>
+    <script src="/js/light.js"></script>
+  </body>
+</html>

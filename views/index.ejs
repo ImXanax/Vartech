@@ -15,11 +15,6 @@
         <div class="logo">
           <img src="./images/vartechlogo.svg" alt="VARTECH" />
         </div>
-        <a href="#" class="nav-menu">
-          <span class="bar"></span>
-          <span class="bar"></span>
-          <span class="bar"></span>
-        </a>
         <ul class="nav-ul">
           <li
             class="nav-li"
@@ -35,18 +30,17 @@
           </li>
           <li
             class="nav-li"
+            onclick="document.querySelector(`h1[class='shop-title']`).scrollIntoView({block:`start`});"
+          >
+            SHOP
+          </li>
+          <li
+            class="nav-li"
             onclick="document.querySelector('.contact').scrollIntoView();"
           >
             CONTACT
           </li>
-          <li
-            class="nav-li"
-            onclick="document.querySelector('hr').scrollIntoView({block:`center`});"
-          >
-            SHOP
-          </li>
         </ul>
-
         <section class="nav-buttons">
           <!-- LANGUAGE -->
           <div class="nav-btn" id="changeLanguageToggle">
@@ -62,7 +56,7 @@
             <img src="./images/board.svg" alt="" />
           </button>
           <!-- SIGN UP -->
-          <button class="nav-btn">
+          <button class="nav-btn" id="login" onclick="login()">
             <svg style="width: 27px; height: 27px" viewBox="0 0 24 24">
               <path
                 fill="currentColor"
@@ -78,8 +72,39 @@
               viewBox="0 0 24 24"
             ></svg>
           </button>
+          <a href="#" class="nav-menu" onclick="hamburger()">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+          </a>
         </section>
       </nav>
+      <ul class="hamburger-menu">
+        <li
+          class="nav-li"
+          onclick="document.querySelector('.carousel-section-image').scrollIntoView(); this.closest(`ul`).style.display = 'none';"
+        >
+          HOME
+        </li>
+        <li
+          class="nav-li"
+          onclick="document.querySelector('.services-section').scrollIntoView(); this.closest(`ul`).style.display = 'none';"
+        >
+          SERVICES
+        </li>
+        <li
+          class="nav-li"
+          onclick="document.querySelector(`h1[class='shop-title']`).scrollIntoView({block:`start`}); this.closest(`ul`).style.display = 'none';"
+        >
+          SHOP
+        </li>
+        <li
+          class="nav-li"
+          onclick="document.querySelector('.contact').scrollIntoView(); this.closest(`ul`).style.display = 'none';"
+        >
+          CONTACT
+        </li>
+      </ul>
 
       <!-- IMAGE CAROUSEL -->
       <section class="carousel-section-image" aria-label="soldering">
@@ -415,6 +440,26 @@
           ></iframe>
         </div>
       </section>
+      <!-- LOGIN -->
+      <div class="login">
+        <div class="signin">
+          <img src="./images/login1.svg" alt="" />
+          <h1 class="login-title">Already Have An Account ?</h1>
+          <button onclick="signin()" type="button" class="login-btn">
+            SIGN IN
+          </button>
+        </div>
+        <div class="signup">
+          <img src="./images/login2.svg" alt="" />
+          <h1 class="login-title">Create A New Account !</h1>
+          <button onclick="signup()" type="button" class="login-btn">
+            SIGN UP
+          </button>
+        </div>
+        <div class="close-btn">
+          <button id="close" onclick="close()">&#215;</button>
+        </div>
+      </div>
     </div>
     <!-- SCRIPTS -->
     <script src="./js/script.js"></script>

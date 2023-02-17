@@ -34,8 +34,42 @@ const copy = async (a) => {
   }
 };
 
-const configBuilder = document.getElementById('configBuilder')
-configBuilder.addEventListener('click',()=>{
-  location.href = 'config'
-})
+const configBuilder = document.getElementById("configBuilder");
+configBuilder.addEventListener("click", () => {
+  location.href = "config";
+});
 
+const login = () => {
+  const loginDiv = document.querySelector(".login");
+  if (loginDiv.style.display == "flex") {
+    loginDiv.style.display = "none";
+  } else {
+    loginDiv.style.display = "flex";
+  }
+};
+
+const signup = () => {
+  location.href = "/user/signup";
+};
+const signin = () => {
+  location.href = "/user/signin";
+};
+
+const close = document.getElementById("close");
+close.addEventListener("click", () => {
+  const loginDiv = document.querySelector(".login");
+  if (loginDiv) {
+    loginDiv.style.display = "none";
+  }
+});
+
+const hamburger = () => {
+  const hamburgerDropDown = document.querySelector(".hamburger-menu");
+  if (hamburgerDropDown) {
+    if (hamburgerDropDown.style.display == "flex") {
+      hamburgerDropDown.style.display = "none";
+    } else {
+      hamburgerDropDown.style.display = "flex";
+    }
+  }
+};
