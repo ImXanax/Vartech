@@ -6,28 +6,18 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const flash = require("connect-flash");
+const { check, validationResult } = require("express-validator");
 
 const Product = require("./models/productSchema");
 const userSchema = require("./models/userSchema");
+require("./config/passport");
+require("dotenv").config();
 
 const app = express();
 const port = process.env.PORT || 5500;
-mongoose.set("strictQuery", true);
-mongoose
-  .connect("mongodb://localhost:27017/shop", {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  })
-  .then(() => {
-    console.log(`🟢 Mongo Connected`);
-  })
-  .catch(() => {
-    console.error();
-  });
-require("./config/passport");
-require('dotenv').config()
 app.set("views", "./views");
 app.set("view engine", "ejs");
+app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser("cookie-parser-secret"));
 app.use(
@@ -48,6 +38,19 @@ app.use(express.static(__dirname + "/public"));
 app.use("/css", express.static(__dirname + "public/css"));
 app.use("/images", express.static(__dirname + "public/images"));
 app.use("/js", express.static(__dirname + "public/js"));
+
+mongoose.set("strictQuery", true);
+mongoose
+  .connect("mongodb://localhost:27017/shop", {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  })
+  .then(() => {
+    console.log(`🟢 Mongo Connected`);
+  })
+  .catch(() => {
+    console.error();
+  });
 
 app.get("/", (req, res) => {
   Product.find((err, p) => {
@@ -76,6 +79,19 @@ app.get("/user/signin", (req, res) => {
 
 app.post(
   "/user/signup",
+  [
+    check("email", "Invalid E-mail")
+      .not()
+      .isEmpty()
+      .isEmail()
+      .normalizeEmail()
+      .withMessage("Invalid E-mail Address"),
+    check("password", "Invalid password")
+      .not()
+      .isEmpty()
+      .isLength({ min: 4 })
+      .withMessage("Password Must Be At Least 5 Characters"),
+  ],
   passport.authenticate("local.signup", {
     successRedirect: "/user/profile",
     failureRedirect: "/user/signup",

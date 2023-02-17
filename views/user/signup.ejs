@@ -21,7 +21,7 @@
           <button type="submit">Sign Up</button>
           <% if (hasErrors) { %>
             <% messages.forEach(msg => { %>
-             <p style="color:rgb(242, 143, 22);font-weight: bold;"><%=msg%></p>
+             <p class="error"><%=msg%></p>
             <% }) %>
           <% } %>
         </form>

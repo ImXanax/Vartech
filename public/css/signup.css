@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
-  
+@import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
+
 * {
   box-sizing: border-box;
 }
@@ -37,12 +38,12 @@ h2 {
 p {
   font-size: 14px;
   font-weight: 100;
-  line-height: 20px;
+  line-height: 5px;
   letter-spacing: 0.5px;
-  margin: 20px 0 30px;
 }
 
-h1,span{
+h1,
+span {
   color: var(--fnt-clr);
 }
 span {
@@ -75,7 +76,7 @@ button:active {
 
 button:focus {
   outline: none;
-} 
+}
 
 form {
   display: flex;
@@ -99,8 +100,7 @@ input {
   background-color: #f3441363;
   backdrop-filter: blur(1px);
   border-radius: 10px;
-  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
-    0 10px 10px rgba(0, 0, 0, 0.22);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   position: relative;
   overflow: hidden;
   width: 500px;
@@ -120,4 +120,15 @@ input {
   width: 100%;
   padding: 0px 30px 0px;
   z-index: 1;
+}
+p.error{
+  font-family: "Varela Round";
+  color: rgb(205, 199, 198);
+  font-weight: bold;
+  text-shadow: 2px 0px 0px black;
+}
+p.error::before{
+  content: "*";
+  color: red;
+  text-shadow: 2px 0px 0px black;
 }

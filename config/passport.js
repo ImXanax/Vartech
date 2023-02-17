@@ -1,4 +1,5 @@
 const passport = require("passport");
+const { body, validationResult } = require("express-validator");
 const UsersSchema = require("../models/userSchema");
 const LocalStrategy = require("passport-local").Strategy;
 
@@ -21,6 +22,15 @@ passport.use(
       passReqToCallback: true,
     },
     (req, email, password, done) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        var text = errors.array();
+        var message = [];
+        text.forEach(function (err) {
+          message.push(err.msg);
+        });
+        return done(null, false, req.flash("error", message));
+      }
       UsersSchema.findOne({ email: email }, (err, user) => {
         if (err) {
           console.log(`ERR1:${err}`);
