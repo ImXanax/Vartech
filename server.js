@@ -64,17 +64,12 @@ app.get("/config", (req, res) => {
 
 app.get("/user/signup", (req, res) => {
   const messages = req.flash("error");
-  console.log(`messages: ${messages}`);
   const csrfToken = req.csrfToken();
   res.render("user/signup", {
     csrfToken: csrfToken,
     messages: messages,
     hasErrors: messages.length > 0,
   });
-});
-
-app.get("/user/signin", (req, res) => {
-  res.render("user/signin");
 });
 
 app.post(
@@ -95,6 +90,36 @@ app.post(
   passport.authenticate("local.signup", {
     successRedirect: "/user/profile",
     failureRedirect: "/user/signup",
+    failureFlash: true,
+  })
+);
+
+app.get("/user/signin", (req, res) => {
+  const messages = req.flash("error");
+  const csrfToken = req.csrfToken();
+  res.render("user/signin", {
+    csrfToken: csrfToken,
+    messages: messages,
+    hasErrors: messages.length > 0,
+  });
+});
+
+app.post(
+  "/user/signin",
+  [
+    check("email", "Invalid E-mail")
+      .not()
+      .isEmpty()
+      .isEmail()
+      .withMessage("Invalid E-mail Address"),
+    check("password", "Invalid password")
+      .not()
+      .isEmpty()
+      .withMessage("Must Provide A Password"),
+  ],
+  passport.authenticate("local.signin", {
+    successRedirect: "/user/profile",
+    failureRedirect: "/user/signin",
     failureFlash: true,
   })
 );

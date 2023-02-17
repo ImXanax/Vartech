@@ -13,6 +13,7 @@ passport.deserializeUser((id, done) => {
   });
 });
 
+// SIGN UP
 passport.use(
   "local.signup",
   new LocalStrategy(
@@ -33,11 +34,9 @@ passport.use(
       }
       UsersSchema.findOne({ email: email }, (err, user) => {
         if (err) {
-          console.log(`ERR1:${err}`);
           return done(err);
         }
         if (user) {
-          console.log(`ERR2:${user}`);
           return done(null, false, { message: "Email Already In Use" });
         }
         const newUser = new UsersSchema();
@@ -45,11 +44,45 @@ passport.use(
         newUser.password = newUser.encryptPassword(password);
         newUser.save((err, res) => {
           if (err) {
-            console.log(`ERR3:${err}`);
             return done(err);
           }
           return done(null, newUser);
         });
+      });
+    }
+  )
+);
+
+// SIGN IN
+passport.use(
+  "local.signin",
+  new LocalStrategy(
+    {
+      usernameField: "email",
+      passwordField: "password",
+      passReqToCallback: true,
+    },
+    (req, email, password, done) => {
+      const errors = validationResult(req);
+      if (!errors.isEmpty()) {
+        var text = errors.array();
+        var message = [];
+        text.forEach(function (err) {
+          message.push(err.msg);
+        });
+        return done(null, false, req.flash("error", message));
+      }
+      UsersSchema.findOne({ email: email }, (err, user) => {
+        if (err) {
+          return done(err);
+        }
+        if (!user) {
+          return done(null, false, { message: "No User Found!" });
+        }
+        if (!user.validatePassword(password)) {
+          return done(null, false, { message: "Wrong Password!" });
+        }
+        return done(null, user);
       });
     }
   )

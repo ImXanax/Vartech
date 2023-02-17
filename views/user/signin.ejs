@@ -14,8 +14,9 @@
         <form action="/user/signin" method="post">
           <h1>Sign in</h1>
           <span>or use your account</span>
-          <input type="email" placeholder="Email" autocomplete="username" />
+          <input name="email" type="email" placeholder="Email" autocomplete="username" />
           <input
+            name="password" 
             type="password"
             placeholder="Password"
             autocomplete="current-password"
@@ -23,6 +24,11 @@
           <a href="#">Forgot your password?</a>
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
           <button type="submit">Sign In</button>
+          <% if (hasErrors) { %>
+            <% messages.forEach(msg => { %>
+             <p class="error"><%=msg%></p>
+            <% }) %>
+          <% } %>
         </form>
       </div>
     </div>

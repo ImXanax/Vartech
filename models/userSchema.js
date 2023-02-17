@@ -7,8 +7,8 @@ const userSchema = new mongoose.Schema({
 userSchema.methods.encryptPassword = (password) => {
   return bcrypt.hashSync(password, bcrypt.genSaltSync(5), null);
 };
-userSchema.methods.validatePassword = (password) => {
-    return bcrypt.compareSync(password,this.password)
-  };
+userSchema.methods.validatePassword = function(password){
+  return bcrypt.compareSync(password, this.password);
+};
 
 module.exports = new mongoose.model("User", userSchema, "users");
