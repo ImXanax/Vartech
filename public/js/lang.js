@@ -140,13 +140,13 @@ const en = () => {
   let nav = document.querySelectorAll(".nav-li");
   nav[0].textContent = language.en.header.home;
   nav[1].textContent = language.en.header.service;
-  nav[2].textContent = language.en.header.contact;
-  nav[3].textContent = language.en.header.shop;
+  nav[2].textContent = language.en.header.shop;
+  nav[3].textContent = language.en.header.contact;
 
   nav[4].textContent = language.en.header.home;
   nav[5].textContent = language.en.header.service;
-  nav[6].textContent = language.en.header.contact;
-  nav[7].textContent = language.en.header.shop;
+  nav[6].textContent = language.en.header.shop;
+  nav[7].textContent = language.en.header.contact;
 
   //SERVICES
   let infoBoxTitle = document.querySelectorAll(".info-box-title");
@@ -219,13 +219,13 @@ const fa = () => {
   let nav = document.querySelectorAll(".nav-li");
   nav[0].textContent = language.fa.header.home;
   nav[1].textContent = language.fa.header.service;
-  nav[2].textContent = language.fa.header.contact;
-  nav[3].textContent = language.fa.header.shop;
+  nav[2].textContent = language.fa.header.shop;
+  nav[3].textContent = language.fa.header.contact;
   /* HEADER HAMBURGER*/
   nav[4].textContent = language.fa.header.home;
   nav[5].textContent = language.fa.header.service;
-  nav[6].textContent = language.fa.header.contact;
-  nav[7].textContent = language.fa.header.shop;
+  nav[6].textContent = language.fa.header.shop;
+  nav[7].textContent = language.fa.header.contact;
 
   //SERVICES
   let infoBoxTitle = document.querySelectorAll(".info-box-title");

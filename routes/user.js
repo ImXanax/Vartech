@@ -4,7 +4,6 @@ const csurf = require("tiny-csrf");
 const passport = require("passport");
 const { check, validationResult } = require("express-validator");
 
-
 const Product = require("../models/productSchema");
 
 router.get("/signup", (req, res) => {
@@ -68,9 +67,19 @@ router.post(
     failureFlash: true,
   })
 );
-
-router.get("/profile", (req, res) => {
+router.get("/logout", (req, res, next) => {
+  req.logout();
+  res.redirect("/");
+});
+router.get("/profile", isLoggedIn, (req, res) => {
   res.render("user/profile");
 });
 
 module.exports = router;
+
+function isLoggedIn(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/");
+}
