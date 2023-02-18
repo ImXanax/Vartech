@@ -222,10 +222,17 @@
         <section class="shop-section">
           <div class="shop-container">
             <% products.forEach(product => { %>
+              <% let price = product.price %>
+              <% price = price.toLocaleString()%>
             <div class="product">
               <img src="<%= product.imgSrc %>" alt="Graphic Card" />
               <h2 class="product-title"><%= product.title %></h2>
-              <h4 class="product-price"><%= product.price %></h4>
+              <div class="product-footer">
+                <a href="/addcart/" class="cart-add">ADD TO CART</a>
+                <div class="product-price-wrapper">
+                  <h4 class="product-price"><%= price %></h4>
+                </div>
+              </div>
             </div>
             <% }) %>
           </div>

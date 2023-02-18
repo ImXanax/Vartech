@@ -28,6 +28,7 @@
 :root {
   --pri-clr: rgba(13, 8, 34);
   --scr-clr: rgba(211, 59, 8);
+  --thr-clr:rgb(69, 145, 126);
   --fnt-clr: aliceblue;
   --fnt-clr2: aliceblue;
   --bak-ds1: rgba(232, 58, 0, 0.547);
@@ -441,6 +442,7 @@ button.nav-btn {
   text-align: center;
   margin: auto;
   margin-top: 5rem;
+  margin-bottom: 1rem;
   font-family: var(--fnt-hdr);
 }
 hr {
@@ -456,6 +458,7 @@ hr {
   align-items: center;
   flex-direction: column;
   padding: 0px 0px 40px 0px;
+  background-image: url("../images/circuit-board.svg");
 }
 .shop-container {
   width: 100%;
@@ -467,8 +470,7 @@ hr {
   gap: 10px 10px;
   padding: 40px;
 }
-.product {
-  border: 4px solid var(--pri-clr);
+.product {  
   display: flex;
   justify-content: center;
   align-items: center;
@@ -476,10 +478,13 @@ hr {
   width: 400px;
   min-width: 30vw;
   text-align: center;
+  backdrop-filter: blur(2px);
   cursor: pointer;
+  border: none;
+  box-shadow: 0px 1px 15px rgba(0, 0, 0, 0.79);
 }
 .product:hover {
-  border: 4px solid var(--scr-clr);
+  border: 4px solid var(--pri-clr);
 }
 .product > img {
   max-width: 90%;
@@ -499,6 +504,48 @@ hr {
   font-size: 1rem;
   margin: 5px;
 }
+
+.product-footer{
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  height: auto;
+  font-size: 1rem;
+}
+.product-price-wrapper{
+  width: 50%;
+  background-color: var(--scr-clr);
+  color: #ffffff;
+  font-weight: bold;
+  padding: 12px 0px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: default;
+}
+.product-footer > a{
+  font-family: Shabnam;
+  background-color: var(--pri-clr);
+  color: var(--fnt-clr);
+  width: 50%;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 12px 0px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: transform 80ms ease-in;
+  cursor: pointer;
+  border: none;
+}
+.product-footer>a:hover{
+  background-color: var(--thr-clr);
+  border: none;
+}
+.product-footer>a:active{
+  transform: scale(0.97);
+}
+
 /* WAVE */
 .wave {
   height: 100%;

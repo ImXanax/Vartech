@@ -5,6 +5,7 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const passport = require("passport");
 const flash = require("connect-flash");
+const MongoStore = require("connect-mongo")(session);
 const { check, validationResult } = require("express-validator");
 
 const Product = require("./models/productSchema");
@@ -17,13 +18,34 @@ const userRoutes = require("./routes/user");
 
 const app = express();
 const port = process.env.PORT || 5500;
+
+mongoose.set("strictQuery", true);
+mongoose
+  .connect("mongodb://localhost:27017/shop", {
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  })
+  .then(() => {
+    console.log(`🟢 Mongo Connected`);
+  })
+  .catch(() => {
+    console.error();
+  });
 app.set("views", "./views");
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser("cookie-parser-secret"));
 app.use(
-  session({ secret: "keyboard cat", resave: false, saveUninitialized: false })
+  session({
+    secret: "keyboard cat",
+    resave: false,
+    saveUninitialized: false,
+    store: new MongoStore({
+      mongooseConnection: mongoose.connection,
+    }),
+    cookie: { maxAge: 180 * 60 * 1000 },
+  })
 );
 app.use(
   csurf(
@@ -43,6 +65,7 @@ app.use("/js", express.static(__dirname + "public/js"));
 
 app.use(function (req, res, next) {
   res.locals.login = req.isAuthenticated();
+  res.locals.session = req.session;
   next();
 });
 
@@ -52,19 +75,6 @@ app.use("/", routes);
 app.get("*", (req, res) => {
   res.render("404");
 });
-
-mongoose.set("strictQuery", true);
-mongoose
-  .connect("mongodb://localhost:27017/shop", {
-    useUnifiedTopology: true,
-    useNewUrlParser: true,
-  })
-  .then(() => {
-    console.log(`🟢 Mongo Connected`);
-  })
-  .catch(() => {
-    console.error();
-  });
 
 app.listen(process.env.PORT || 5500, () => {
   console.log(`🟢 Server running http://localhost:${port}`);

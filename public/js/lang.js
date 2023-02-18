@@ -54,6 +54,10 @@ let language = {
         button: "ثبت نام",
       },
     },
+    shop:{
+      title:"فروشگاه",
+      button:"افزودن به سبد"
+    }
   },
   en: {
     header: {
@@ -109,6 +113,10 @@ let language = {
         button: "SIGN UP",
       },
     },
+    shop:{
+      title:"SHOP",
+      button:"ADD TO CART"
+    }
   },
 };
 
@@ -186,6 +194,14 @@ const en = () => {
   let loginBtns = document.querySelectorAll(".login-btn");
   loginBtns[0].textContent = language.en.login.signin.button;
   loginBtns[1].textContent = language.en.login.signup.button;
+
+  // SHOP
+  let shopTitle = document.querySelector(".shop-title");
+  shopTitle.textContent = language.en.shop.title
+  let shopBtns = document.querySelectorAll(".shop-title");
+  shopBtns.forEach(btn=>{
+    btn.textContent = language.en.shop.button
+  })
 };
 
 const fa = () => {
@@ -264,6 +280,14 @@ const fa = () => {
   let loginBtns = document.querySelectorAll(".login-btn");
   loginBtns[0].textContent = language.fa.login.signin.button;
   loginBtns[1].textContent = language.fa.login.signup.button;
+
+  // SHOP
+  let shopTitle = document.querySelector(".shop-title");
+  shopTitle.textContent = language.fa.shop.title
+  let shopBtns = document.querySelectorAll(".cart-add");
+  shopBtns.forEach(btn=>{
+    btn.textContent = language.fa.shop.button
+  })
 };
 
 if (languageOption === "fa") {
