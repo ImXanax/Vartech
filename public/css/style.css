@@ -144,13 +144,13 @@ ul.nav-ul {
   font-size: 1rem;
   flex-direction: row;
 }
-.hamburger-menu{
+.hamburger-menu {
   z-index: 99999;
   width: 100vw;
   height: 45vh;
   background-color: var(--pri-clr);
 }
-ul.hamburger-menu{
+ul.hamburger-menu {
   display: none;
   position: absolute;
   margin: 0 auto;
@@ -168,11 +168,11 @@ ul.hamburger-menu{
   font-size: 1rem;
   flex-direction: column;
 }
-.hamburger-menu > li{
+.hamburger-menu > li {
   width: 100%;
   height: 100%;
 }
-.hamburger-menu > li:active{
+.hamburger-menu > li:active {
   transform: scale(0.95);
 }
 li.nav-li {
@@ -235,6 +235,89 @@ button.nav-btn {
 .nav-btn > svg:hover {
   filter: drop-shadow(0px 2px 4px var(--bak-ds1));
   color: var(--hvr-pri);
+}
+/*tooltip Box*/
+.con-tooltip {
+  margin-top: 2.5px;
+  position: relative;
+  display: inline-block;
+  transition: all 0.3s ease-in-out;
+  cursor: default;
+}
+
+/*tooltip */
+.tooltip {
+  visibility: hidden;
+  z-index: 1;
+  opacity: 0.4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  background: aliceblue;
+  color: #000000;
+  position: absolute;
+  top: -140%;
+  left: -25%;
+  transform: translateY(9px);
+  transition: all 0.3s ease-in-out;
+
+  box-shadow: 0 0 3px rgba(56, 54, 54, 0.86);
+}
+.tooltip > a{
+  text-align: center;
+  margin: auto;
+  width: 100px;
+  height: 100%;
+  padding: 10px 20px;
+  font-size: 0.8rem;
+  text-decoration: none !important;
+  color: black;
+}
+.tooltip > a:hover{
+  background-color: rgb(206, 215, 223);
+}
+/* tooltip  after*/
+.tooltip::after {
+  content: " ";
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 12px 12.5px 0 12.5px;
+  border-color: #ffffff transparent transparent transparent;
+  position: absolute;
+  left: 40%;
+}
+
+.con-tooltip:hover .tooltip {
+  visibility: visible;
+  transform: translateY(-10px);
+  opacity: 1;
+  transition: 0.3s linear;
+  animation: odsoky 1s ease-in-out infinite alternate;
+}
+.bottom .tooltip {
+  top: 115%;
+  left: -147%;
+}
+
+.bottom .tooltip::after {
+  top: -17%;
+  left: 40%;
+  transform: rotate(180deg);
+}
+@keyframes odsoky {
+  0% {
+    transform: translateY(6px);
+  }
+
+  100% {
+    transform: translateY(1px);
+  }
+}
+/*hover ToolTip*/
+.bottom:hover {
+  transform: translateY(6px);
 }
 
 /* CAROUSEL */
@@ -667,7 +750,7 @@ ul.slider-track {
   background-image: url("../images/topography.svg");
   background-color: var(--pri-clr);
 }
-.signin > img{
+.signin > img {
   width: 200px;
   height: 200px;
 }
@@ -685,7 +768,7 @@ ul.slider-track {
   background-image: url("../images/topography.svg");
   background-color: var(--pri-clr);
 }
-.signup > img{
+.signup > img {
   width: 200px;
   height: 200px;
 }
@@ -695,7 +778,7 @@ ul.slider-track {
   color: var(--fnt-clr);
   text-shadow: 0px 5px 10px black;
 }
-.login-container{
+.login-container {
   background-color: rgb(255, 251, 251);
   width: 80vw;
   height: 80vh;
@@ -718,19 +801,19 @@ button[type="button"]:active {
 button[type="button"]:focus {
   outline: none;
 }
-.close-btn{
+.close-btn {
   position: absolute;
   top: 10px;
   left: calc(100% - 29px);
   bottom: 0;
   right: 0;
   width: 20px;
-  height: 20px;  
+  height: 20px;
   text-align: center;
-  transform: translate(-50% , -50%);
+  transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
 }
-.close-btn > button{
+.close-btn > button {
   background-color: rgba(235, 56, 29, 0.612);
   backdrop-filter: blur(2px);
   color: aliceblue;
@@ -740,9 +823,8 @@ button[type="button"]:focus {
   text-align: center;
   padding: 0px 10px;
 }
-.close-btn > button:active{
+.close-btn > button:active {
   transform: scale(0.85);
-
 }
 @keyframes done {
   5% {
@@ -802,21 +884,21 @@ button[type="button"]:focus {
   }
 }
 @media screen and (max-width: 360px) {
-  .header .logo{
+  .header .logo {
     display: none;
   }
-  .header{
-    padding: 10px 0px;
+  .header {
+    padding: 13px 0px;
   }
-  .nav-buttons{
+  .nav-buttons {
     margin-right: 0px;
   }
 }
 @media screen and (max-width: 300px) {
-  .header{
+  .header {
     justify-content: center;
   }
-  .nav-buttons{
+  .nav-buttons {
     gap: 13px;
   }
 }

@@ -6,6 +6,21 @@ const { check, validationResult } = require("express-validator");
 
 const Product = require("../models/productSchema");
 
+router.get("/profile", isLoggedIn, (req, res, next) => {
+  res.render("user/profile");
+});
+
+router.get("/logout", isLoggedIn, (req, res, next) => {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
+});
+
+router.use("/", notLoggedIn, (req, res, next) => {
+  next();
+});
+
 router.get("/signup", (req, res) => {
   const messages = req.flash("error");
   const csrfToken = req.csrfToken();
@@ -67,18 +82,17 @@ router.post(
     failureFlash: true,
   })
 );
-router.get("/logout", (req, res, next) => {
-  req.logout();
-  res.redirect("/");
-});
-router.get("/profile", isLoggedIn, (req, res) => {
-  res.render("user/profile");
-});
 
 module.exports = router;
 
 function isLoggedIn(req, res, next) {
   if (req.isAuthenticated()) {
+    return next();
+  }
+  res.redirect("/");
+}
+function notLoggedIn(req, res, next) {
+  if (!req.isAuthenticated()) {
     return next();
   }
   res.redirect("/");
