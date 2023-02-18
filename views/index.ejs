@@ -228,7 +228,7 @@
               <img src="<%= product.imgSrc %>" alt="Graphic Card" />
               <h2 class="product-title"><%= product.title %></h2>
               <div class="product-footer">
-                <a href="/addcart/" class="cart-add">ADD TO CART</a>
+                <a href="/addcart/<%=product._id%>" class="cart-add">ADD TO CART</a>
                 <div class="product-price-wrapper">
                   <h4 class="product-price"><%= price %></h4>
                 </div>
