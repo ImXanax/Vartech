@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="/css/cart.css" rel="stylesheet" type="text/css" />
+    <title>CART</title>
+  </head>
+  <body>
+    <div class="cart-container">
+      <% if (products && products.length > 0) { %>
+      <table>
+        <tr>
+          <th class="nav"><a href="/">HOME </a><span> > </span><a href="#"> CART </a></th>
+          <th>TITLE</th>
+          <th>QTY</th>
+          <th>PRICE</th>
+        </tr>
+        <% products.forEach(product => { %>
+        <tr>
+          <td class="item-img">
+            <img src=".<%=product.src%>" alt="" />
+          </td>
+          <td class="item-title"><%=product.item.title%></td>
+          <td class="item-buttons">
+            <a class="item-add" href="/add/<%=product.item._id%>">&#43;</a>
+            <div class="item-qty"><%=product.qty%></div>
+            <a class="item-rem" href="/rem/<%=product.item._id%>">&#8722;</a>
+          </td>
+          <% let price = product.price %> <% price = price.toLocaleString()%>
+          <td class="item-price"><%=price%></td>
+        </tr>
+        <% }) %>
+        <tr>
+          <th></th>
+          <th></th>
+          <th class="checkout"><button>CHECKOUT</button></th>
+          <th><strong><%=totalPrice.toLocaleString()%></strong></th>
+        </tr>
+      </table>
+      <% } else { %>
+      <div class="nothing">
+        <div class="nh">
+            <a href="/">HOME</a>
+            <pre> > </pre>
+            <a href="#">CART</a>
+            <div class="close-btn">
+                <button>&#215;</button>
+            </div>
+        </div>
+        <div class="nb">
+            <h1 class="nothing-title">Nothing in your cart ...</h1>
+            <img src="../images/search.svg" alt="">
+        </div>
+      </div>
+      <%}%>
+    </div>
+    <script src="/js/light.js"></script>
+  </body>
+</html>

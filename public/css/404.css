@@ -1,0 +1,56 @@
+@font-face {
+  font-family: Vartech;
+  src: url("../fonts/Vartech\ reg.otf") format("opentype");
+}
+@font-face {
+  font-family: Vartech;
+  font-style: italic;
+  src: url("../fonts/Vartech\ reg\ it.otf") format("opentype");
+}
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+:root {
+  --bg-clr: rgb(13, 8, 34);
+  --fnt-clr: aliceblue;
+  --logo-filter: none;
+}
+.light {
+  --bg-clr: aliceblue;
+  --fnt-clr: black;
+  --logo-filter: invert();
+}
+body {
+  background-image: url("../images/topography.svg");
+  background-color: var(--bg-clr);
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(1px);
+}
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-flow: column wrap;
+  text-align: center;
+  font-family: Vartech;
+}
+.container > img {
+  width: 100%;
+  max-width: 100px;
+  height: 100%;
+  filter: var(--logo-filter);
+}
+.svg > img {
+  width: 100%;
+  max-width: 700px;
+  height: 100%;
+}
+.container h1 {
+  color: var(--fnt-clr);
+  font-size: 100%;
+}

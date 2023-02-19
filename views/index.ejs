@@ -55,6 +55,13 @@
           <button class="nav-btn" id="configBuilder">
             <img src="./images/board.svg" alt="" />
           </button>
+          <!-- CART -->
+          <div class="nav-btn" onclick="location.href = '/cart/'">
+            <img src="./images/cart.svg" alt="cart icon" />
+            <% if (session.cart) { %>
+            <span class="qty"><%=session.cart.totalQty%></span>
+            <% } %>
+          </div>
           <!-- SIGN UP -->
           <% if (login) { %>
           <div class="con-tooltip bottom">
@@ -221,14 +228,15 @@
         <hr />
         <section class="shop-section">
           <div class="shop-container">
-            <% products.forEach(product => { %>
-              <% let price = product.price %>
-              <% price = price.toLocaleString()%>
+            <% products.forEach(product => { %> <% let price = product.price %>
+            <% price = price.toLocaleString()%>
             <div class="product">
               <img src="<%= product.imgSrc %>" alt="Graphic Card" />
               <h2 class="product-title"><%= product.title %></h2>
               <div class="product-footer">
-                <a href="/addcart/<%=product._id%>" class="cart-add">ADD TO CART</a>
+                <a href="/addcart/<%=product._id%>" class="cart-add"
+                  >ADD TO CART</a
+                >
                 <div class="product-price-wrapper">
                   <h4 class="product-price"><%= price %></h4>
                 </div>
