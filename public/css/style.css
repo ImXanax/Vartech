@@ -802,7 +802,7 @@ ul.slider-track {
 .signin {
   display: flex;
   width: 50vw;
-  height: 70vh;
+  height: 100%;
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;
@@ -820,7 +820,7 @@ ul.slider-track {
 .signup {
   display: flex;
   width: 50vw;
-  height: 70vh;
+  height: 100%;
   justify-content: center;
   align-items: center;
   flex-flow: column wrap;

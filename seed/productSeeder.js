@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Product = require("../models/productSchema");
 
 mongoose
-  .connect("mongodb://localhost:27017/shop", {
+  .connect("mongodb://127.0.0.1:27017/shop", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
