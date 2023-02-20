@@ -13,12 +13,12 @@
       <!-- SIGN UP -->
       <div class="form-container sign-up-container">
         <form action="/user/signup" method="post">
-          <h1>Create Account</h1>
-          <span>or use your email for registration</span>
+          <h1 class="signup-title">Create Account</h1>
+          <span class="signup-tip">or use your email for registration</span>
           <input type="email" name="email" placeholder="Email" autocomplete="email" />
           <input type="password" name="password" placeholder="Password" autocomplete="current-password" />
           <input type="hidden" name="_csrf" value="<%=csrfToken%>">
-          <button type="submit">Sign Up</button>
+          <button class="signup-btn" type="submit">Sign Up</button>
           <% if (hasErrors) { %>
             <% messages.forEach(msg => { %>
              <p class="error"><%=msg%></p>
@@ -28,5 +28,6 @@
       </div>
     </div>
     <script src="/js/light.js"></script>
+    <script src="/js/lang.js"></script>
   </body>
 </html>

@@ -12,8 +12,8 @@
       <!-- SIGN IN -->
       <div class="form-container sign-in-container">
         <form action="/user/signin" method="post">
-          <h1>Sign in</h1>
-          <span>or use your account</span>
+          <h1 class="signin-title">Sign in</h1>
+          <span class="signin-tip">or use your account</span>
           <input name="email" type="email" placeholder="Email" autocomplete="username" />
           <input
             name="password" 
@@ -21,9 +21,8 @@
             placeholder="Password"
             autocomplete="current-password"
           />
-          <a href="#">Forgot your password?</a>
           <input type="hidden" name="_csrf" value="<%= csrfToken %>">
-          <button type="submit">Sign In</button>
+          <button class="signin-btn" type="submit">Sign In</button>
           <% if (hasErrors) { %>
             <% messages.forEach(msg => { %>
              <p class="error"><%=msg%></p>
@@ -33,5 +32,6 @@
       </div>
     </div>
     <script src="/js/light.js"></script>
+    <script src="/js/lang.js"></script>
   </body>
 </html>
