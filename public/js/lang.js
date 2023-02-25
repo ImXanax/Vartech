@@ -60,6 +60,10 @@ let language = {
       title: "فروشگاه",
       button: "افزودن به سبد",
     },
+    profile: {
+      title: "پروفایل",
+      logout: "خروج",
+    },
   },
   en: {
     header: {
@@ -120,6 +124,10 @@ let language = {
     shop: {
       title: "SHOP",
       button: "ADD TO CART",
+    },
+    profile: {
+      title: "PROFILE",
+      logout: "LOG OUT",
     },
   },
 };
@@ -238,6 +246,13 @@ const en = () => {
     signupTip.textContent = language.en.login.signup.tip;
     signupBtn.textContent = language.en.login.signin.button;
   }
+
+  let profileBtn = document.querySelector(".pf");
+  let profileLogout = document.querySelector(".lo");
+  if (profileBtn && profileLogout) {
+    profileBtn.textContent = language.en.profile.title;
+    profileLogout.textContent = language.en.profile.logout;
+  }
 };
 
 const fa = () => {
@@ -273,6 +288,7 @@ const fa = () => {
 
   // HEADER
   let nav = document.querySelectorAll(".nav-li");
+  console.log(nav);
   if (nav) {
     nav[0].textContent = language.fa.header.home;
     nav[1].textContent = language.fa.header.service;
@@ -347,14 +363,7 @@ const fa = () => {
   let signupTip = document.querySelector(".signup-tip");
   let signupTitle = document.querySelector(".signup-title");
   let signupBtn = document.querySelector(".signup-btn");
-  console.log(signinTip)
-  console.log(signinTitle)
-  console.log(signinBtn)
 
-  
-  console.log(signupTip)
-  console.log(signupTitle)
-  console.log(signupBtn)
   if (signinTitle && signinTip && signinBtn) {
     signinTitle.textContent = language.fa.login.signin.title;
     signinTip.textContent = language.fa.login.signin.tip;
@@ -364,6 +373,12 @@ const fa = () => {
     signupTitle.textContent = language.fa.login.signup.title;
     signupTip.textContent = language.fa.login.signup.tip;
     signupBtn.textContent = language.fa.login.signin.button;
+  }
+  let profileBtn = document.querySelector(".pf");
+  let profileLogout = document.querySelector(".lo");
+  if (profileBtn && profileLogout) {
+    profileBtn.textContent = language.fa.profile.title;
+    profileLogout.textContent = language.fa.profile.logout;
   }
 };
 

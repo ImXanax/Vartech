@@ -1,6 +1,21 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
 @import url("https://fonts.googleapis.com/css2?family=Varela+Round&display=swap");
 
+@font-face {
+  font-family: Shabnam;
+  src: url("../fonts/Shabnam.ttf") format("truetype");
+  font-weight: normal;
+}
+@font-face {
+  font-family: Vartech;
+  src: url("../fonts/Vartech\ reg.otf") format("opentype");
+}
+@font-face {
+  font-family: Vartech;
+  font-style: italic;
+  src: url("../fonts/Vartech\ reg\ it.otf") format("opentype");
+}
+
 * {
   box-sizing: border-box;
 }
@@ -14,6 +29,10 @@
   --pri-clr: #f0f8ff;
   --fnt-clr: black;
 }
+.lan {
+  --fnt-lan: Shabnam, sans-serif;
+}
+
 body {
   background-color: var(--pri-clr);
   background-image: url("../images/topography.svg");
