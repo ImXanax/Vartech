@@ -12,7 +12,6 @@ router.get("/", (req, res) => {
 router.get("/config", (req, res) => {
   res.render("config");
 });
-
 router.get("/cart/", (req, res) => {
   if (!req.session.cart) {
     return res.render("cart", { products: null });

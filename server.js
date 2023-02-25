@@ -21,15 +21,15 @@ const port = process.env.PORT || 5500;
 
 mongoose.set("strictQuery", true);
 mongoose
-  .connect("mongodb://localhost:27017/shop", {
+  .connect("mongodb://127.0.0.1:27017/shop", {
     useUnifiedTopology: true,
     useNewUrlParser: true,
   })
   .then(() => {
     console.log(`🟢 Mongo Connected`);
   })
-  .catch(() => {
-    console.error();
+  .catch((e) => {
+    console.error(e);
   });
 app.set("views", "./views");
 app.set("view engine", "ejs");
@@ -77,5 +77,5 @@ app.get("*", (req, res) => {
 });
 
 app.listen(process.env.PORT || 5500, () => {
-  console.log(`🟢 Server running http://localhost:${port}`);
+  console.log(`🟢 Server running http://127.0.0.1:${port}`);
 });
