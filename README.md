@@ -7,7 +7,8 @@ A website designed for a computer services & repair shop called **Vartech**
     - *MONGO_DB*: URI link to your mongo database
     - *PORT*: Defaults to 5500
     - *CSRF*: CSRF 32 char long token
-to run use:
+
+To start the server:
 ```bash
 >npm run start
 ```
